@@ -9,15 +9,17 @@ package org.itson.disenosoftware.negocio.dtos;
 public class ClienteNuevoDTO {
     private String nombres;
     private String apellidos;
+    private String correo;
     private String telefono;
 
     public ClienteNuevoDTO() {
     }
 
     
-    public ClienteNuevoDTO(String nombres, String apellidos, String telefono) {
+    public ClienteNuevoDTO(String nombres, String apellidos, String correo, String telefono) {
         this.nombres = nombres;
         this.apellidos = apellidos;
+        this.correo = correo;
         this.telefono = telefono;
     }
 
@@ -37,6 +39,14 @@ public class ClienteNuevoDTO {
         this.apellidos = apellidos;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    
     public String getTelefono() {
         return telefono;
     }
@@ -47,8 +57,7 @@ public class ClienteNuevoDTO {
 
     @Override
     public String toString() {
-        return "ClienteNuevoDTO{" + "nombres=" + nombres + ", apellidos=" + apellidos + ", telefono=" + telefono + '}';
+        return "ClienteNuevoDTO{" + "nombres=" + nombres + ", apellidos=" + apellidos + ", correo=" + correo + ", telefono=" + telefono + '}';
     }
-    
-    
+ 
 }

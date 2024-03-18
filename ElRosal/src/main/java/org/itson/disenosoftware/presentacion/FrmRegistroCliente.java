@@ -3,6 +3,8 @@ package org.itson.disenosoftware.presentacion;
 import org.itson.disenosoftware.navegacion.INavegacion;
 import org.itson.disenosoftware.navegacion.Navegacion;
 import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
+import org.itson.disenosoftware.negocio.subsistemas.cliente.FAdminClientes;
+import org.itson.disenosoftware.negocio.subsistemas.cliente.IFAdminClientes;
 
 /**
  *
@@ -21,6 +23,22 @@ public class FrmRegistroCliente extends javax.swing.JFrame {
         initComponents();
     }
 
+    private void guardar(){
+        
+        String nombre = txtNombre.getText();
+        String apellidos = txtApellidos.getText();
+        String correo = txtCorreo.getText();
+        String telefono = txtTelefono.getText();
+        
+        clienteDTO.setNombres(nombre);
+        clienteDTO.setApellidos(apellidos);
+        clienteDTO.setCorreo(correo);
+        clienteDTO.setTelefono(telefono);
+        
+        IFAdminClientes adminClientes = new FAdminClientes();
+        adminClientes.registrarCliente(clienteDTO);
+    }
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -154,6 +172,7 @@ public class FrmRegistroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        guardar();
         navegacion.cambiarFrmTipoOrden(this, clienteDTO);
     }//GEN-LAST:event_btnAgregarActionPerformed
 

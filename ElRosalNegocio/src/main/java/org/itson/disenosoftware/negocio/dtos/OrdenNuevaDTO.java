@@ -14,7 +14,6 @@ private FotoNuevaDTO foto;
     public OrdenNuevaDTO() {
     }
 
-
     public OrdenNuevaDTO(ClienteNuevoDTO cliente, MarcoNuevoDTO marco, FotoNuevaDTO foto) {
         this.cliente = cliente;
         this.marco = marco;
