@@ -32,8 +32,8 @@ public class FrmOpcionesCliente extends javax.swing.JFrame {
         logoRosa1 = new javax.swing.JLabel();
         logoRosa2 = new javax.swing.JLabel();
         panelOpciones = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnClienteRegistrado = new javax.swing.JButton();
+        btnClienteNuevo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,26 +57,50 @@ public class FrmOpcionesCliente extends javax.swing.JFrame {
         panelOpciones.setBackground(new java.awt.Color(242, 224, 201));
         panelOpciones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(64, 53, 44));
-        jButton1.setFont(new java.awt.Font("Amazon Ember Light", 0, 36)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(242, 224, 201));
-        jButton1.setText("CLIENTE REGISTRADO");
-        panelOpciones.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 400, 100));
+        btnClienteRegistrado.setBackground(new java.awt.Color(64, 53, 44));
+        btnClienteRegistrado.setFont(new java.awt.Font("Amazon Ember Light", 0, 36)); // NOI18N
+        btnClienteRegistrado.setForeground(new java.awt.Color(242, 224, 201));
+        btnClienteRegistrado.setText("CLIENTE REGISTRADO");
+        btnClienteRegistrado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteRegistradoActionPerformed(evt);
+            }
+        });
+        panelOpciones.add(btnClienteRegistrado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 220, 400, 100));
 
-        jButton2.setBackground(new java.awt.Color(64, 53, 44));
-        jButton2.setFont(new java.awt.Font("Amazon Ember Light", 0, 36)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(242, 224, 201));
-        jButton2.setText("CLIENTE NUEVO");
-        panelOpciones.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 400, 100));
+        btnClienteNuevo.setBackground(new java.awt.Color(64, 53, 44));
+        btnClienteNuevo.setFont(new java.awt.Font("Amazon Ember Light", 0, 36)); // NOI18N
+        btnClienteNuevo.setForeground(new java.awt.Color(242, 224, 201));
+        btnClienteNuevo.setText("CLIENTE NUEVO");
+        btnClienteNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClienteNuevoActionPerformed(evt);
+            }
+        });
+        panelOpciones.add(btnClienteNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 400, 100));
 
         getContentPane().add(panelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1000, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnClienteNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteNuevoActionPerformed
+        // TODO add your handling code here:
+            FrmRegistroCliente rc=new FrmRegistroCliente();
+        rc.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnClienteNuevoActionPerformed
+
+    private void btnClienteRegistradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteRegistradoActionPerformed
+        // TODO add your handling code here:
+    FrmBuscarCliente bc=new FrmBuscarCliente();
+            bc.setVisible(true);
+            dispose();
+    }//GEN-LAST:event_btnClienteRegistradoActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnClienteNuevo;
+    private javax.swing.JButton btnClienteRegistrado;
     private javax.swing.JLabel lblEncabezado;
     private javax.swing.JLabel logoRosa1;
     private javax.swing.JLabel logoRosa2;

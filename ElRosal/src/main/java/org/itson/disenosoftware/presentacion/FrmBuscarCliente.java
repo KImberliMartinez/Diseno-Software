@@ -137,6 +137,9 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         // TODO add your handling code here:
+        FrmTipoOrden tp=new FrmTipoOrden();
+        tp.setVisible(true);
+        dispose();
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
 

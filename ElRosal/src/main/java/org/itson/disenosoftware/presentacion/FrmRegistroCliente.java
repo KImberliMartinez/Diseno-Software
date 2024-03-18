@@ -133,12 +133,24 @@ public class FrmRegistroCliente extends javax.swing.JFrame {
         btnAgregar.setForeground(new java.awt.Color(242, 224, 201));
         btnAgregar.setText("Agregar");
         btnAgregar.setBorderPainted(false);
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
         panelOpciones.add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 380, 160, 50));
 
         getContentPane().add(panelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1000, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        // TODO add your handling code here:
+        FrmTipoOrden tp=new FrmTipoOrden();
+        tp.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
