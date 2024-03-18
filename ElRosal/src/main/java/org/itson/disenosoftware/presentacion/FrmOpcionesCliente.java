@@ -1,20 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 package org.itson.disenosoftware.presentacion;
+
+import org.itson.disenosoftware.navegacion.INavegacion;
+import org.itson.disenosoftware.navegacion.Navegacion;
 
 /**
  *
  * @author José Karim Franco Valencia - 245138
- * @author Jesus Rene Gonzalez Castro - 247336
- * @author Gael Rafael Castro Molina - 244802
+ * @author Kimberli Joana Martinez Sandoval - 244802
+ * @author Víctor Humberto Encinas Guzmán - 244821
+ * @author José Ángel Huerta Amparán - 245345
+ * @author Alexa Maria Picos Valenzuela - 244893
  */
 public class FrmOpcionesCliente extends javax.swing.JFrame {
 
+    INavegacion navegacion;
     /** Creates new form FrmOpcionesCliente */
     public FrmOpcionesCliente() {
+        navegacion = new Navegacion();
         initComponents();
     }
 
@@ -85,17 +87,11 @@ public class FrmOpcionesCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClienteNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteNuevoActionPerformed
-        // TODO add your handling code here:
-            FrmRegistroCliente rc=new FrmRegistroCliente();
-        rc.setVisible(true);
-        dispose();
+        navegacion.cambiarFrmRegistroCliente(this);
     }//GEN-LAST:event_btnClienteNuevoActionPerformed
 
     private void btnClienteRegistradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteRegistradoActionPerformed
-        // TODO add your handling code here:
-    FrmBuscarCliente bc=new FrmBuscarCliente();
-            bc.setVisible(true);
-            dispose();
+        navegacion.cambiarFrmBuscarCliente(this);
     }//GEN-LAST:event_btnClienteRegistradoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

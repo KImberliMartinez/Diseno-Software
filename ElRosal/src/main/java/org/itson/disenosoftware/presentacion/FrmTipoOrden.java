@@ -1,21 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 package org.itson.disenosoftware.presentacion;
+
+import org.itson.disenosoftware.navegacion.INavegacion;
+import org.itson.disenosoftware.navegacion.Navegacion;
+import org.itson.disenosoftware.negocio.avisos.Avisos;
+import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
 
 /**
  *
  * @author José Karim Franco Valencia - 245138
- * @author Jesus Rene Gonzalez Castro - 247336
- * @author Gael Rafael Castro Molina - 244802
+ * @author Kimberli Joana Martinez Sandoval - 244802
+ * @author Víctor Humberto Encinas Guzmán - 244821
+ * @author José Ángel Huerta Amparán - 245345
+ * @author Alexa Maria Picos Valenzuela - 244893
  */
 public class FrmTipoOrden extends javax.swing.JFrame {
 
+    INavegacion navegacion;
+    ClienteNuevoDTO clienteDTO;
     /** Creates new form FrmOpcionesCliente */
     public FrmTipoOrden() {
+        navegacion = new Navegacion();
+        clienteDTO = new ClienteNuevoDTO();
         initComponents();
+        quitarX();
     }
 
     /** This method is called from within the constructor to
@@ -37,11 +44,11 @@ public class FrmTipoOrden extends javax.swing.JFrame {
         lblOpciones2 = new javax.swing.JLabel();
         lblOpciones3 = new javax.swing.JLabel();
         panelOpcion3 = new javax.swing.JPanel();
-        btnOpcionFoto1 = new javax.swing.JButton();
+        btnOpcion3 = new javax.swing.JButton();
         panelOpcion2 = new javax.swing.JPanel();
-        btnOpcionFoto = new javax.swing.JButton();
+        btnOpcion2 = new javax.swing.JButton();
         panelOpcion1 = new javax.swing.JPanel();
-        btnOpcionMarco = new javax.swing.JButton();
+        btnOpcion1 = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         btnContinuar = new javax.swing.JButton();
 
@@ -92,14 +99,19 @@ public class FrmTipoOrden extends javax.swing.JFrame {
         panelOpcion3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
         panelOpcion3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnOpcionFoto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconX.png"))); // NOI18N
-        btnOpcionFoto1.setBorder(null);
-        btnOpcionFoto1.setBorderPainted(false);
-        btnOpcionFoto1.setContentAreaFilled(false);
-        btnOpcionFoto1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnOpcionFoto1.setFocusPainted(false);
-        btnOpcionFoto1.setFocusable(false);
-        panelOpcion3.add(btnOpcionFoto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+        btnOpcion3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconX.png"))); // NOI18N
+        btnOpcion3.setBorder(null);
+        btnOpcion3.setBorderPainted(false);
+        btnOpcion3.setContentAreaFilled(false);
+        btnOpcion3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnOpcion3.setFocusPainted(false);
+        btnOpcion3.setFocusable(false);
+        btnOpcion3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpcion3ActionPerformed(evt);
+            }
+        });
+        panelOpcion3.add(btnOpcion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
         panelOpciones.add(panelOpcion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 50, 50));
 
@@ -107,14 +119,19 @@ public class FrmTipoOrden extends javax.swing.JFrame {
         panelOpcion2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
         panelOpcion2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnOpcionFoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconX.png"))); // NOI18N
-        btnOpcionFoto.setBorder(null);
-        btnOpcionFoto.setBorderPainted(false);
-        btnOpcionFoto.setContentAreaFilled(false);
-        btnOpcionFoto.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnOpcionFoto.setFocusPainted(false);
-        btnOpcionFoto.setFocusable(false);
-        panelOpcion2.add(btnOpcionFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+        btnOpcion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconX.png"))); // NOI18N
+        btnOpcion2.setBorder(null);
+        btnOpcion2.setBorderPainted(false);
+        btnOpcion2.setContentAreaFilled(false);
+        btnOpcion2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnOpcion2.setFocusPainted(false);
+        btnOpcion2.setFocusable(false);
+        btnOpcion2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpcion2ActionPerformed(evt);
+            }
+        });
+        panelOpcion2.add(btnOpcion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
         panelOpciones.add(panelOpcion2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, 50, 50));
 
@@ -122,15 +139,19 @@ public class FrmTipoOrden extends javax.swing.JFrame {
         panelOpcion1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
         panelOpcion1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnOpcionMarco.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconX.png"))); // NOI18N
-        btnOpcionMarco.setBorder(null);
-        btnOpcionMarco.setBorderPainted(false);
-        btnOpcionMarco.setContentAreaFilled(false);
-        btnOpcionMarco.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnOpcionMarco.setFocusPainted(false);
-        btnOpcionMarco.setFocusable(false);
-        btnOpcionMarco.setLabel("");
-        panelOpcion1.add(btnOpcionMarco, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
+        btnOpcion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconX.png"))); // NOI18N
+        btnOpcion1.setBorder(null);
+        btnOpcion1.setBorderPainted(false);
+        btnOpcion1.setContentAreaFilled(false);
+        btnOpcion1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnOpcion1.setFocusPainted(false);
+        btnOpcion1.setFocusable(false);
+        btnOpcion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOpcion1ActionPerformed(evt);
+            }
+        });
+        panelOpcion1.add(btnOpcion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 50, 50));
 
         panelOpciones.add(panelOpcion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 50, 50));
 
@@ -159,16 +180,44 @@ public class FrmTipoOrden extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
-        // TODO add your handling code here:
+        if(btnOpcion1.getIcon() != null  || btnOpcion2.getIcon() != null || btnOpcion3.getIcon() != null){
+            navegacion.cambiarFrmDetallesMarco(this, clienteDTO);
+        }else{
+            new Avisos().mostrarAviso(this, "Seleccione un tipo de orden");
+        }
     }//GEN-LAST:event_btnContinuarActionPerformed
 
+    private void btnOpcion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcion1ActionPerformed
+        btnOpcion3.setIcon(null);
+        btnOpcion2.setIcon(null);
+        btnOpcion1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconX.png")));
+    }//GEN-LAST:event_btnOpcion1ActionPerformed
+
+    private void btnOpcion3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcion3ActionPerformed
+        btnOpcion1.setIcon(null);
+        btnOpcion2.setIcon(null);
+        btnOpcion3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconX.png")));
+    }//GEN-LAST:event_btnOpcion3ActionPerformed
+
+    private void btnOpcion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOpcion2ActionPerformed
+        btnOpcion1.setIcon(null);
+        btnOpcion3.setIcon(null);
+        btnOpcion2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconX.png")));
+    }//GEN-LAST:event_btnOpcion2ActionPerformed
+
+    
+    private void quitarX(){
+        btnOpcion1.setIcon(null);
+        btnOpcion2.setIcon(null);
+        btnOpcion3.setIcon(null);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnContinuar;
-    private javax.swing.JButton btnOpcionFoto;
-    private javax.swing.JButton btnOpcionFoto1;
-    private javax.swing.JButton btnOpcionMarco;
+    private javax.swing.JButton btnOpcion1;
+    private javax.swing.JButton btnOpcion2;
+    private javax.swing.JButton btnOpcion3;
     private javax.swing.JLabel lblEncabezado;
     private javax.swing.JLabel lblOpciones1;
     private javax.swing.JLabel lblOpciones2;

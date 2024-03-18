@@ -1,9 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 package org.itson.disenosoftware.presentacion;
+
+import org.itson.disenosoftware.navegacion.INavegacion;
+import org.itson.disenosoftware.navegacion.Navegacion;
+import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
 
 /**
  *
@@ -13,8 +12,12 @@ package org.itson.disenosoftware.presentacion;
  */
 public class FrmRegistroCliente extends javax.swing.JFrame {
 
+    INavegacion navegacion;
+    ClienteNuevoDTO clienteDTO;
     /** Creates new form FrmOpcionesCliente */
     public FrmRegistroCliente() {
+        navegacion = new Navegacion();
+        clienteDTO = new ClienteNuevoDTO();
         initComponents();
     }
 
@@ -126,6 +129,11 @@ public class FrmRegistroCliente extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(242, 224, 201));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorderPainted(false);
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
         panelOpciones.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 160, 50));
 
         btnAgregar.setBackground(new java.awt.Color(64, 53, 44));
@@ -146,11 +154,12 @@ public class FrmRegistroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
-        // TODO add your handling code here:
-        FrmTipoOrden tp=new FrmTipoOrden();
-        tp.setVisible(true);
-        dispose();
+        navegacion.cambiarFrmTipoOrden(this, clienteDTO);
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        navegacion.cambiarFrmTipoOrden(this, clienteDTO);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;

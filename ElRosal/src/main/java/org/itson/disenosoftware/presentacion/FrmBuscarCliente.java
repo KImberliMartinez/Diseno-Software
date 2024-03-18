@@ -1,20 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 package org.itson.disenosoftware.presentacion;
+
+import org.itson.disenosoftware.navegacion.INavegacion;
+import org.itson.disenosoftware.navegacion.Navegacion;
 
 /**
  *
  * @author José Karim Franco Valencia - 245138
- * @author Jesus Rene Gonzalez Castro - 247336
- * @author Gael Rafael Castro Molina - 244802
+ * @author Kimberli Joana Martinez Sandoval - 244802
+ * @author Víctor Humberto Encinas Guzmán - 244821
+ * @author José Ángel Huerta Amparán - 245345
+ * @author Alexa Maria Picos Valenzuela - 244893
  */
 public class FrmBuscarCliente extends javax.swing.JFrame {
 
+    INavegacion navegacion;
     /** Creates new form FrmOpcionesCliente */
     public FrmBuscarCliente() {
+        navegacion = new Navegacion();
         initComponents();
     }
 
@@ -98,6 +100,11 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(242, 224, 201));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorderPainted(false);
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
         panelOpciones.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 160, 50));
 
         btnSeleccionar.setBackground(new java.awt.Color(64, 53, 44));
@@ -142,6 +149,9 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        navegacion.cambiarFrmOpcionesCliente(this);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
