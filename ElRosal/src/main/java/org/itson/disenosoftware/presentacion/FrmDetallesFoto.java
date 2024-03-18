@@ -116,6 +116,11 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         btnAplicarEdicion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAplicarEdicion.setFocusPainted(false);
         btnAplicarEdicion.setFocusable(false);
+        btnAplicarEdicion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAplicarEdicionActionPerformed(evt);
+            }
+        });
         panelOpcion3.add(btnAplicarEdicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 30));
 
         panelOpciones.add(panelOpcion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 30, 30));
@@ -186,6 +191,10 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
     private void btnContinuar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuar1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnContinuar1ActionPerformed
+
+    private void btnAplicarEdicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarEdicionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAplicarEdicionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
