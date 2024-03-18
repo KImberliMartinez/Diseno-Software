@@ -7,5 +7,9 @@ package org.itson.disenosoftware.negocio.dtos;
  * @author Gael Rafael Castro Molina - 244802
  */
 public class OrdenNuevaDTO {
+//private Cliente cliente;
+//private Marco marco;
+//private Foto foto;
+
 
 }

@@ -12,5 +12,54 @@ package org.itson.disenosoftware.negocio.dtos;
  * @author Gael Rafael Castro Molina - 244802
  */
 public class MarcoNuevoDTO {
+private double ancho;
+private double largo;
+private String tipoDetalle;
+private  int Cantidad;
+
+    public MarcoNuevoDTO() {
+    }
+
+
+    public MarcoNuevoDTO(double ancho, double largo, String tipoDetalle, int Cantidad) {
+        this.ancho = ancho;
+        this.largo = largo;
+        this.tipoDetalle = tipoDetalle;
+        this.Cantidad = Cantidad;
+    }
+
+    public double getAncho() {
+        return ancho;
+    }
+
+    public void setAncho(double ancho) {
+        this.ancho = ancho;
+    }
+
+    public double getLargo() {
+        return largo;
+    }
+
+    public void setLargo(double largo) {
+        this.largo = largo;
+    }
+
+    public String getTipoDetalle() {
+        return tipoDetalle;
+    }
+
+    public void setTipoDetalle(String tipoDetalle) {
+        this.tipoDetalle = tipoDetalle;
+    }
+
+    public int getCantidad() {
+        return Cantidad;
+    }
+
+    public void setCantidad(int Cantidad) {
+        this.Cantidad = Cantidad;
+    }
+
+    
 
 }
