@@ -1,5 +1,12 @@
 package org.itson.disenosoftware.presentacion;
 
+import org.itson.disenosoftware.navegacion.INavegacion;
+import org.itson.disenosoftware.navegacion.Navegacion;
+import org.itson.disenosoftware.negocio.avisos.Avisos;
+import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
+import org.itson.disenosoftware.negocio.dtos.FotoNuevaDTO;
+import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
+
 /**
  *
  * @author José Karim Franco Valencia - 245138
@@ -8,8 +15,16 @@ package org.itson.disenosoftware.presentacion;
  */
 public class FrmPedidoInfo extends javax.swing.JFrame {
 
+   INavegacion navegacion;
+    ClienteNuevoDTO clienteDTO;
+    MarcoNuevoDTO marcoDTO;
+    FotoNuevaDTO fotoDTO;
     /** Creates new form FrmOpcionesCliente */
     public FrmPedidoInfo() {
+        navegacion = new Navegacion();
+        clienteDTO = new ClienteNuevoDTO();
+        marcoDTO = new MarcoNuevoDTO();
+        fotoDTO = new FotoNuevaDTO();
         initComponents();
     }
 
@@ -99,6 +114,11 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(242, 224, 201));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorderPainted(false);
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
         panelOpciones.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 160, 50));
 
         btnRegistrar.setBackground(new java.awt.Color(64, 53, 44));
@@ -184,6 +204,12 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        if(new Avisos().mostrarConfirmacion(this, "¿Seguro quiere cancelar el pedido?", "Cancelar pedido")){
+            navegacion.cambiarFrmOpcionesCliente(this);
+        }
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -1,20 +1,28 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-
 package org.itson.disenosoftware.presentacion;
+
+import org.itson.disenosoftware.navegacion.INavegacion;
+import org.itson.disenosoftware.navegacion.Navegacion;
+import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
+import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
 
 /**
  *
  * @author José Karim Franco Valencia - 245138
- * @author Jesus Rene Gonzalez Castro - 247336
- * @author Gael Rafael Castro Molina - 244802
+ * @author Kimberli Joana Martinez Sandoval - 244802
+ * @author Víctor Humberto Encinas Guzmán - 244821
+ * @author José Ángel Huerta Amparán - 245345
+ * @author Alexa Maria Picos Valenzuela - 244893
  */
 public class FrmDetallesMarco extends javax.swing.JFrame {
 
+    INavegacion navegacion;
+    ClienteNuevoDTO clienteDTO;
+    MarcoNuevoDTO marcoDTO;
     /** Creates new form FrmOpcionesCliente */
     public FrmDetallesMarco() {
+        navegacion = new Navegacion();
+        clienteDTO = new ClienteNuevoDTO();
+        marcoDTO = new MarcoNuevoDTO();
         initComponents();
     }
 
@@ -182,7 +190,7 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxTipoActionPerformed
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
-        // TODO add your handling code here:
+        navegacion.cambiarFrmPedidoInfo(this, clienteDTO, null, marcoDTO);
     }//GEN-LAST:event_btnContinuarActionPerformed
 
 
