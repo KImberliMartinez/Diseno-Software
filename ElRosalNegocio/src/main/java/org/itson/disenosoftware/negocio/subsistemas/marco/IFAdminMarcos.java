@@ -4,10 +4,15 @@
  */
 package org.itson.disenosoftware.negocio.subsistemas.marco;
 
+import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
+
 /**
  *
  * @author JoseH
  */
 public interface IFAdminMarcos {
+    
+    public void registrarMarco(MarcoNuevoDTO datos);
+    public void recuperarCatalogoMarcos();
     
 }

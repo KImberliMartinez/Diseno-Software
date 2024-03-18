@@ -4,10 +4,18 @@
  */
 package org.itson.disenosoftware.negocio.subsistemas.pedido;
 
+import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
+import org.itson.disenosoftware.negocio.dtos.OrdenNuevaDTO;
+
 /**
  *
  * @author JoseH
  */
 public class FAdminPedidos implements IFAdminPedidos{
+    private ControlPedidos control = new ControlPedidos();
+    
+    public void confirmarPedido(OrdenNuevaDTO datos) {
+        control.confirmarPedido(datos);
+    }
     
 }

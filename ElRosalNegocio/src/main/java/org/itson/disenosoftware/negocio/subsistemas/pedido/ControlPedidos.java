@@ -4,10 +4,19 @@
  */
 package org.itson.disenosoftware.negocio.subsistemas.pedido;
 
+import org.itson.disenosoftware.negocio.dtos.OrdenNuevaDTO;
+
 /**
  *
  * @author JoseH
  */
 public class ControlPedidos {
+    
+    public void confirmarPedido(OrdenNuevaDTO datos) {
+        // Lógica para confirmar el pedido
+        System.out.println("Pedido confirmado: Marco " + datos.toString());
+    }
+    
+    
     
 }

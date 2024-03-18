@@ -4,10 +4,12 @@
  */
 package org.itson.disenosoftware.negocio.subsistemas.pedido;
 
+import org.itson.disenosoftware.negocio.dtos.OrdenNuevaDTO;
+
 /**
  *
  * @author JoseH
  */
 public interface IFAdminPedidos {
-    
+    public void confirmarPedido(OrdenNuevaDTO datos);
 }

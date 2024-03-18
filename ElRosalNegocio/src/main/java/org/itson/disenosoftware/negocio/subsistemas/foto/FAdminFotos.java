@@ -4,10 +4,17 @@
  */
 package org.itson.disenosoftware.negocio.subsistemas.foto;
 
+import org.itson.disenosoftware.negocio.dtos.FotoNuevaDTO;
+
 /**
  *
  * @author JoseH
  */
 public class FAdminFotos implements IFAdminFotos{
+    private FotoControl control = new FotoControl();
     
+    public void agregarFoto(FotoNuevaDTO datos) {
+        control.agregarFoto(datos);
+    }
+
 }

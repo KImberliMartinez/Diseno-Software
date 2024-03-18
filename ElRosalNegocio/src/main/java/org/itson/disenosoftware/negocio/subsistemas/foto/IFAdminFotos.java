@@ -4,10 +4,12 @@
  */
 package org.itson.disenosoftware.negocio.subsistemas.foto;
 
+import org.itson.disenosoftware.negocio.dtos.FotoNuevaDTO;
+
 /**
  *
  * @author JoseH
  */
 public interface IFAdminFotos {
-    
+    public void agregarFoto(FotoNuevaDTO datos);
 }

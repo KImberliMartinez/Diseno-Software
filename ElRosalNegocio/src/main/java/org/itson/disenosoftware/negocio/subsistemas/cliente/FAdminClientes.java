@@ -4,10 +4,16 @@
  */
 package org.itson.disenosoftware.negocio.subsistemas.cliente;
 
+import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
+
 /**
  *
  * @author JoseH
  */
 public class FAdminClientes implements IFAdminClientes{
+    private ClienteControl control = new ClienteControl();
     
+    public void registrarCliente(ClienteNuevoDTO datos) {
+        control.registrarCliente(datos);
+    }
 }
