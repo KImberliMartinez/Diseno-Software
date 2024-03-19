@@ -203,6 +203,11 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
+        if(lblCorreo.getText().isEmpty()|lblImpuestos.getText().isEmpty()||lblCorreo.getText().isEmpty()||lblNombreCliente1.getText().isEmpty()||jTextArea1.getText().isEmpty()){
+              new Avisos().mostrarAviso(this, "complete todos los espacios");
+        }else{
+          
+        }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

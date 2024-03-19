@@ -2,6 +2,7 @@ package org.itson.disenosoftware.presentacion;
 
 import org.itson.disenosoftware.navegacion.INavegacion;
 import org.itson.disenosoftware.navegacion.Navegacion;
+import org.itson.disenosoftware.negocio.avisos.Avisos;
 
 /**
  *
@@ -144,9 +145,16 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         // TODO add your handling code here:
-        FrmTipoOrden tp=new FrmTipoOrden();
+        if(cbxTipo.getSelectedIndex()==-1||txtNombre.getText().isEmpty()){
+           // navegacion.cambiarFrmTipoOrden(this, clienteDTO);
+           new Avisos().mostrarAviso(this, "complete todos los espacios");
+      
+        }else{
+              FrmTipoOrden tp=new FrmTipoOrden();
         tp.setVisible(true);
         dispose();
+        }
+        
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
