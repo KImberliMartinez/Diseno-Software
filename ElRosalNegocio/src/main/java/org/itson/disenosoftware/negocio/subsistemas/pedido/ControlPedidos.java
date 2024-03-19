@@ -23,6 +23,37 @@ public class ControlPedidos {
         System.out.println("Pedido confirmado: Marco " + datos.toString());
     }
     
-    
+    public float calcularPrecioPedido(OrdenNuevaDTO datos){
+        float precio = 500;
+        if(datos.getMarco() != null && datos.getFoto() != null){
+           precio += calcularPrecioFoto(datos);
+           
+           
+        } else if (datos.getMarco() == null){
+            
+        } else if(datos.getFoto() == null){
+            
+        }
+    }
+   
+    public float calcularPrecioFoto(OrdenNuevaDTO datos) {
+        if (!datos.getFoto().getEdicionDeseada().isBlank() || !datos.getFoto().getEdicionDeseada().isEmpty()) {
+            return 300;
+        }
+        return 0;
+    }
+        
+    public float calcularPrecioMarco(OrdenNuevaDTO datos){
+        float precioUnidad;
+        float precio;
+        if (datos.getMarco().getTipoDetalle().equals("Roble")){
+            
+        }
+//        listaMarcos.add("Roble");
+//        listaMarcos.add("Maple");
+//        listaMarcos.add("Abedul");
+//        listaMarcos.add("Pino");   
+
+    }
     
 }

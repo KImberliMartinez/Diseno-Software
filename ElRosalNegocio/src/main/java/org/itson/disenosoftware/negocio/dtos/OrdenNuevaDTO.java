@@ -10,6 +10,7 @@ public class OrdenNuevaDTO {
 private ClienteNuevoDTO cliente;
 private MarcoNuevoDTO marco;
 private FotoNuevaDTO foto;
+private int precio;
 
     public OrdenNuevaDTO() {
     }

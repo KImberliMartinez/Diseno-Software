@@ -6,14 +6,18 @@ import org.itson.disenosoftware.negocio.avisos.Avisos;
 import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
 import org.itson.disenosoftware.negocio.dtos.FotoNuevaDTO;
 import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
+import org.itson.disenosoftware.negocio.dtos.OrdenNuevaDTO;
 import org.itson.disenosoftware.negocio.subsistemas.marco.FAdminMarcos;
 import org.itson.disenosoftware.negocio.subsistemas.marco.IFAdminMarcos;
+
 
 /**
  *
  * @author José Karim Franco Valencia - 245138
- * @author Jesus Rene Gonzalez Castro - 247336
- * @author Gael Rafael Castro Molina - 244802
+ * @author Kimberli Joana Martinez Sandoval - 244802
+ * @author Víctor Humberto Encinas Guzmán - 244821
+ * @author José Ángel Huerta Amparán - 245345
+ * @author Alexa Maria Picos Valenzuela - 244893
  */
 public class FrmPedidoInfo extends javax.swing.JFrame {
 
@@ -21,6 +25,8 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
     ClienteNuevoDTO clienteDTO;
     MarcoNuevoDTO marcoDTO;
     FotoNuevaDTO fotoDTO;
+    OrdenNuevaDTO ordenDTO;
+    
     /** Creates new form FrmOpcionesCliente */
     public FrmPedidoInfo(ClienteNuevoDTO clienteDTO, FotoNuevaDTO fotoDTO, MarcoNuevoDTO marcoDTO) {
         navegacion = new Navegacion();
@@ -53,19 +59,15 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         logoRosa2 = new javax.swing.JLabel();
         panelOpciones = new javax.swing.JPanel();
         lblTituloSeccion1 = new javax.swing.JLabel();
-        lblNombreCliente = new javax.swing.JLabel();
+        lblFechaRealizacion = new javax.swing.JLabel();
         lblTelefono = new javax.swing.JLabel();
         lblCorreo = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         btnRegistrar = new javax.swing.JButton();
-        lblImpuestosInfo = new javax.swing.JLabel();
-        lblImpuestos = new javax.swing.JLabel();
-        lblSubtotalInfo = new javax.swing.JLabel();
         lblTotalInfo = new javax.swing.JLabel();
         lblTotalPagar = new javax.swing.JLabel();
-        lblSubtotal = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtInfo = new javax.swing.JTextArea();
         lblOpciones1 = new javax.swing.JLabel();
         lblNombreCliente1 = new javax.swing.JLabel();
         lblTituloSeccion = new javax.swing.JLabel();
@@ -103,10 +105,10 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         lblTituloSeccion1.setText("Detalles del pedido");
         panelOpciones.add(lblTituloSeccion1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 800, -1));
 
-        lblNombreCliente.setFont(new java.awt.Font("Amazon Ember", 1, 18)); // NOI18N
-        lblNombreCliente.setForeground(new java.awt.Color(64, 53, 44));
-        lblNombreCliente.setText("Aqui se incrusta codigo");
-        panelOpciones.add(lblNombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 280, 130));
+        lblFechaRealizacion.setFont(new java.awt.Font("Amazon Ember", 1, 18)); // NOI18N
+        lblFechaRealizacion.setForeground(new java.awt.Color(64, 53, 44));
+        lblFechaRealizacion.setText("Fecha realización pedido");
+        panelOpciones.add(lblFechaRealizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 280, 130));
 
         lblTelefono.setFont(new java.awt.Font("Amazon Ember Light", 0, 18)); // NOI18N
         lblTelefono.setForeground(new java.awt.Color(64, 53, 44));
@@ -146,24 +148,6 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         });
         panelOpciones.add(btnRegistrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 160, 50));
 
-        lblImpuestosInfo.setFont(new java.awt.Font("Amazon Ember", 1, 18)); // NOI18N
-        lblImpuestosInfo.setForeground(new java.awt.Color(64, 53, 44));
-        lblImpuestosInfo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblImpuestosInfo.setText("Impuestos:");
-        panelOpciones.add(lblImpuestosInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 165, 210, -1));
-
-        lblImpuestos.setFont(new java.awt.Font("Amazon Ember", 0, 18)); // NOI18N
-        lblImpuestos.setForeground(new java.awt.Color(64, 53, 44));
-        lblImpuestos.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblImpuestos.setText("$77.00 MXN");
-        panelOpciones.add(lblImpuestos, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 165, 210, -1));
-
-        lblSubtotalInfo.setFont(new java.awt.Font("Amazon Ember", 1, 18)); // NOI18N
-        lblSubtotalInfo.setForeground(new java.awt.Color(64, 53, 44));
-        lblSubtotalInfo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblSubtotalInfo.setText("Subtotal:");
-        panelOpciones.add(lblSubtotalInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, 210, -1));
-
         lblTotalInfo.setFont(new java.awt.Font("Amazon Ember", 1, 18)); // NOI18N
         lblTotalInfo.setForeground(new java.awt.Color(64, 53, 44));
         lblTotalInfo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -176,6 +160,7 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         lblTotalPagar.setText("$777.00 MXN");
         panelOpciones.add(lblTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 110, 210, -1));
 
+<<<<<<< HEAD
         lblSubtotal.setFont(new java.awt.Font("Amazon Ember", 0, 18)); // NOI18N
         lblSubtotal.setForeground(new java.awt.Color(64, 53, 44));
         lblSubtotal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -190,6 +175,15 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         jTextArea1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
         jTextArea1.setEnabled(false);
         jScrollPane1.setViewportView(jTextArea1);
+=======
+        txtInfo.setBackground(new java.awt.Color(242, 224, 201));
+        txtInfo.setColumns(20);
+        txtInfo.setFont(new java.awt.Font("Amazon Ember Light", 0, 18)); // NOI18N
+        txtInfo.setRows(5);
+        txtInfo.setText("Yo que ni un momento puedo estar lejos de ti\nCómo soportar la vida entera ya sin ti\nTe quiero, te quiero, te juro que yo\nNo puedo vivir sin tu amor");
+        txtInfo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
+        jScrollPane1.setViewportView(txtInfo);
+>>>>>>> main
 
         panelOpciones.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 430, 130));
 
@@ -197,7 +191,7 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         lblOpciones1.setForeground(new java.awt.Color(64, 53, 44));
         lblOpciones1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblOpciones1.setText("Información:");
-        panelOpciones.add(lblOpciones1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 205, 140, -1));
+        panelOpciones.add(lblOpciones1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 200, 140, -1));
 
         lblNombreCliente1.setFont(new java.awt.Font("Amazon Ember", 1, 18)); // NOI18N
         lblNombreCliente1.setForeground(new java.awt.Color(64, 53, 44));
@@ -217,7 +211,7 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        if(lblCorreo.getText().isEmpty()|lblImpuestos.getText().isEmpty()||lblCorreo.getText().isEmpty()||lblNombreCliente1.getText().isEmpty()||jTextArea1.getText().isEmpty()){
+        if(lblCorreo.getText().isEmpty()||lblCorreo.getText().isEmpty()||lblNombreCliente1.getText().isEmpty()||txtInfo.getText().isEmpty()){
               new Avisos().mostrarAviso(this, "complete todos los espacios");
         }else{
           
@@ -235,17 +229,12 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnRegistrar;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblEncabezado;
-    private javax.swing.JLabel lblImpuestos;
-    private javax.swing.JLabel lblImpuestosInfo;
-    private javax.swing.JLabel lblNombreCliente;
+    private javax.swing.JLabel lblFechaRealizacion;
     private javax.swing.JLabel lblNombreCliente1;
     private javax.swing.JLabel lblOpciones;
     private javax.swing.JLabel lblOpciones1;
-    private javax.swing.JLabel lblSubtotal;
-    private javax.swing.JLabel lblSubtotalInfo;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblTituloSeccion;
     private javax.swing.JLabel lblTituloSeccion1;
@@ -255,6 +244,7 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
     private javax.swing.JLabel logoRosa2;
     private javax.swing.JPanel panelEncabezado;
     private javax.swing.JPanel panelOpciones;
+    private javax.swing.JTextArea txtInfo;
     // End of variables declaration//GEN-END:variables
 
 }
