@@ -2,6 +2,7 @@ package org.itson.disenosoftware.presentacion;
 
 import org.itson.disenosoftware.navegacion.INavegacion;
 import org.itson.disenosoftware.navegacion.Navegacion;
+import org.itson.disenosoftware.negocio.avisos.Avisos;
 import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
 import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
 
@@ -190,7 +191,11 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxTipoActionPerformed
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
-        navegacion.cambiarFrmPedidoInfo(this, clienteDTO, null, marcoDTO);
+        if(txtAncho.getText().isEmpty()||txtLargo.getText().isEmpty()||cbxTipo.getSelectedIndex()==-1||jTextArea1.getText().isEmpty()){
+             new Avisos().mostrarAviso(this, "complete toda la informacion");
+        }else{
+          navegacion.cambiarFrmPedidoInfo(this, clienteDTO, null, marcoDTO);
+        }
     }//GEN-LAST:event_btnContinuarActionPerformed
 
 

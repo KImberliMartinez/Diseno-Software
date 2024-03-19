@@ -2,15 +2,14 @@ package org.itson.disenosoftware.presentacion;
 
 import org.itson.disenosoftware.navegacion.INavegacion;
 import org.itson.disenosoftware.navegacion.Navegacion;
+import org.itson.disenosoftware.negocio.avisos.Avisos;
 import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
 import org.itson.disenosoftware.negocio.subsistemas.cliente.FAdminClientes;
 import org.itson.disenosoftware.negocio.subsistemas.cliente.IFAdminClientes;
 
 /**
  *
- * @author José Karim Franco Valencia - 245138
- * @author Jesus Rene Gonzalez Castro - 247336
- * @author Gael Rafael Castro Molina - 244802
+ * 
  */
 public class FrmRegistroCliente extends javax.swing.JFrame {
 
@@ -172,8 +171,12 @@ public class FrmRegistroCliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        if(txtApellidos.getText().isEmpty()||txtCorreo.getText().isEmpty()||txtNombre.getText().isEmpty()||txtTelefono.getText().isEmpty()){
+             new Avisos().mostrarAviso(this, "complete todos los espacios"); 
+        }else{
         guardar();
         navegacion.cambiarFrmTipoOrden(this, clienteDTO);
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

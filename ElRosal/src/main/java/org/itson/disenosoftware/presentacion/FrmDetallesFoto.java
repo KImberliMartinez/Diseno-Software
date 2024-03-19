@@ -5,6 +5,10 @@
 
 package org.itson.disenosoftware.presentacion;
 
+import org.itson.disenosoftware.navegacion.INavegacion;
+import org.itson.disenosoftware.navegacion.Navegacion;
+import org.itson.disenosoftware.negocio.avisos.Avisos;
+
 /**
  *
  * @author José Karim Franco Valencia - 245138
@@ -12,9 +16,10 @@ package org.itson.disenosoftware.presentacion;
  * @author Gael Rafael Castro Molina - 244802
  */
 public class FrmDetallesFoto extends javax.swing.JFrame {
-
+       INavegacion navegacion;
     /** Creates new form FrmOpcionesCliente */
     public FrmDetallesFoto() {
+         navegacion = new Navegacion();
         initComponents();
     }
 
@@ -41,7 +46,7 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         btnAplicarEdicion = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtAreaEdicion = new javax.swing.JTextArea();
         btnCancelar = new javax.swing.JButton();
         btnContinuar = new javax.swing.JButton();
         btnCancelar1 = new javax.swing.JButton();
@@ -129,11 +134,11 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
         panelOpciones.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 210, 280));
 
-        jTextArea1.setBackground(new java.awt.Color(242, 224, 201));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
-        jScrollPane1.setViewportView(jTextArea1);
+        txtAreaEdicion.setBackground(new java.awt.Color(242, 224, 201));
+        txtAreaEdicion.setColumns(20);
+        txtAreaEdicion.setRows(5);
+        txtAreaEdicion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
+        jScrollPane1.setViewportView(txtAreaEdicion);
 
         panelOpciones.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 430, 130));
 
@@ -142,6 +147,11 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(242, 224, 201));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorderPainted(false);
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
         panelOpciones.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 160, 50));
 
         btnContinuar.setBackground(new java.awt.Color(64, 53, 44));
@@ -186,6 +196,11 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
         // TODO add your handling code here:
+        if(txtAreaEdicion.getText().isEmpty()||cbxTipo.getSelectedIndex()==-1){
+           new Avisos().mostrarAviso(this, "complete todos los espacios");  
+        }else{
+            
+        }
     }//GEN-LAST:event_btnContinuarActionPerformed
 
     private void btnContinuar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuar1ActionPerformed
@@ -195,6 +210,11 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
     private void btnAplicarEdicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarEdicionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAplicarEdicionActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        navegacion.cambiarFrmOpcionesCliente(this);
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -206,7 +226,6 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxTipo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblEncabezado;
     private javax.swing.JLabel lblOpciones;
     private javax.swing.JLabel lblOpciones1;
@@ -217,6 +236,7 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
     private javax.swing.JPanel panelEncabezado;
     private javax.swing.JPanel panelOpcion3;
     private javax.swing.JPanel panelOpciones;
+    private javax.swing.JTextArea txtAreaEdicion;
     // End of variables declaration//GEN-END:variables
 
 }
