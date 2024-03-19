@@ -5,12 +5,6 @@
 
 package org.itson.disenosoftware.presentacion;
 
-import org.itson.disenosoftware.navegacion.INavegacion;
-import org.itson.disenosoftware.navegacion.Navegacion;
-import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
-import org.itson.disenosoftware.negocio.dtos.FotoNuevaDTO;
-import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
-
 /**
  *
  * @author José Karim Franco Valencia - 245138
@@ -19,19 +13,8 @@ import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
  */
 public class FrmDetallesFoto extends javax.swing.JFrame {
 
-    INavegacion navegacion;
-    ClienteNuevoDTO clienteDTO;
-    MarcoNuevoDTO marcoDTO;
-    FotoNuevaDTO fotoDTO;
-    
-    /** Creates new form FrmOpcionesCliente
-     * @param clienteDTO
-     * @param marcoDTO */
-    public FrmDetallesFoto(ClienteNuevoDTO clienteDTO, MarcoNuevoDTO marcoDTO) {
-        navegacion = new Navegacion();
-        clienteDTO = new ClienteNuevoDTO();
-        this.marcoDTO = marcoDTO;
-        fotoDTO = new FotoNuevaDTO();
+    /** Creates new form FrmOpcionesCliente */
+    public FrmDetallesFoto() {
         initComponents();
     }
 
@@ -202,7 +185,7 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxTipoActionPerformed
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
-        navegacion.cambiarFrmPedidoInfo(this, clienteDTO, fotoDTO, marcoDTO);
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnContinuarActionPerformed
 
     private void btnContinuar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuar1ActionPerformed

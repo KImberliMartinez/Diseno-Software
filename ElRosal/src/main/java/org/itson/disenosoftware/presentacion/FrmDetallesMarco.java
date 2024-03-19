@@ -18,13 +18,10 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
     INavegacion navegacion;
     ClienteNuevoDTO clienteDTO;
     MarcoNuevoDTO marcoDTO;
-    boolean isCompleto;
-    
     /** Creates new form FrmOpcionesCliente */
-    public FrmDetallesMarco(ClienteNuevoDTO clienteDTO, boolean isCompleto) {
+    public FrmDetallesMarco() {
         navegacion = new Navegacion();
-        this.clienteDTO = clienteDTO;
-        this.isCompleto=isCompleto;
+        clienteDTO = new ClienteNuevoDTO();
         marcoDTO = new MarcoNuevoDTO();
         initComponents();
     }
@@ -193,11 +190,7 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxTipoActionPerformed
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
-        if (isCompleto) {
-            navegacion.cambiarFrmDetallesFoto(this, clienteDTO, marcoDTO);
-        } else {
-            navegacion.cambiarFrmPedidoInfo(this, clienteDTO, null, marcoDTO);
-        }
+        navegacion.cambiarFrmPedidoInfo(this, clienteDTO, null, marcoDTO);
     }//GEN-LAST:event_btnContinuarActionPerformed
 
 
