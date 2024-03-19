@@ -36,6 +36,7 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         this.marcoDTO = marcoDTO;
         fotoDTO = new FotoNuevaDTO();
         initComponents();
+        quitarX();
     }
 
     private void guardarDatosFoto(){
@@ -46,7 +47,9 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         fotoDTO.setEdicionDeseada(edicion);
     }
     
-    
+     private void quitarX() {
+        btnAplicarEdicion.setIcon(null);
+     }
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -68,7 +71,6 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         cbxTipo = new javax.swing.JComboBox<>();
         panelOpcion3 = new javax.swing.JPanel();
         btnAplicarEdicion = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaEdicion = new javax.swing.JTextArea();
         btnCancelar = new javax.swing.JButton();
@@ -155,10 +157,6 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
 
         panelOpciones.add(panelOpcion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 30, 30));
 
-        jPanel1.setBackground(new java.awt.Color(242, 224, 201));
-        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
-        panelOpciones.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 210, 280));
-
         txtAreaEdicion.setBackground(new java.awt.Color(242, 224, 201));
         txtAreaEdicion.setColumns(20);
         txtAreaEdicion.setRows(5);
@@ -221,9 +219,10 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
         // TODO add your handling code here:
-        if(txtAreaEdicion.getText().isEmpty()||cbxTipo.getSelectedIndex()==-1){
+        if((btnAplicarEdicion.getIcon()!= null && txtAreaEdicion.getText().isEmpty())||cbxTipo.getSelectedIndex()==-1){
            new Avisos().mostrarAviso(this, "complete todos los espacios");  
         }else{
+            guardarDatosFoto();
             navegacion.cambiarFrmPedidoInfo(this, clienteDTO, fotoDTO, marcoDTO);
         }
     }//GEN-LAST:event_btnContinuarActionPerformed
@@ -233,7 +232,7 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnContinuar1ActionPerformed
 
     private void btnAplicarEdicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarEdicionActionPerformed
-        // TODO add your handling code here:
+       btnAplicarEdicion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconX.png")));
     }//GEN-LAST:event_btnAplicarEdicionActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -249,7 +248,6 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
     private javax.swing.JButton btnContinuar;
     private javax.swing.JButton btnContinuar1;
     private javax.swing.JComboBox<String> cbxTipo;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEncabezado;
     private javax.swing.JLabel lblOpciones;

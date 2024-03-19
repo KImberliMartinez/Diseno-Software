@@ -89,7 +89,6 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         txaDisenio = new javax.swing.JTextArea();
         btnCancelar = new javax.swing.JButton();
         btnContinuar = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -210,10 +209,6 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         });
         panelOpciones.add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 160, 50));
 
-        jPanel1.setBackground(new java.awt.Color(242, 224, 201));
-        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
-        panelOpciones.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 210, 280));
-
         getContentPane().add(panelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1000, 480));
 
         pack();
@@ -241,7 +236,6 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnContinuar;
     private javax.swing.JComboBox<String> cbxTipo;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAncho;
     private javax.swing.JLabel lblCm;
