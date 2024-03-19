@@ -7,9 +7,14 @@ import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
 import org.itson.disenosoftware.negocio.subsistemas.cliente.FAdminClientes;
 import org.itson.disenosoftware.negocio.subsistemas.cliente.IFAdminClientes;
 
+
 /**
  *
- * 
+ * @author José Karim Franco Valencia - 245138
+ * @author Kimberli Joana Martinez Sandoval - 244802
+ * @author Víctor Humberto Encinas Guzmán - 244821
+ * @author José Ángel Huerta Amparán - 245345
+ * @author Alexa Maria Picos Valenzuela - 244893
  */
 public class FrmRegistroCliente extends javax.swing.JFrame {
 

@@ -149,12 +149,11 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         // TODO add your handling code here:
         if(cbxTipo.getSelectedIndex()==-1||txtNombre.getText().isEmpty()){
-           // navegacion.cambiarFrmTipoOrden(this, clienteDTO);
+           
            new Avisos().mostrarAviso(this, "complete todos los espacios");
       
         }else{
-              FrmTipoOrden tp=new FrmTipoOrden(clienteDTO);
-        tp.setVisible(true);
+             navegacion.cambiarFrmTipoOrden(this, clienteDTO);
         dispose();
         }
         

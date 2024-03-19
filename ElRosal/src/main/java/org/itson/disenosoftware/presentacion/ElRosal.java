@@ -15,5 +15,5 @@ public class ElRosal {
         tipo.setVisible(true);
         
         
-    }
+   }
 }
