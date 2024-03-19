@@ -4,6 +4,7 @@
  */
 package org.itson.disenosoftware.negocio.subsistemas.marco;
 
+import java.util.List;
 import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
 
 /**
@@ -13,6 +14,6 @@ import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
 public interface IFAdminMarcos {
     
     public void registrarMarco(MarcoNuevoDTO datos);
-    public void recuperarCatalogoMarcos();
+    public List<String> recuperarCatalogoMarcos();
     
 }

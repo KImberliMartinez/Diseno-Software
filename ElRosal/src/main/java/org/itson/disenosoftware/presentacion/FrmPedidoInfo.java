@@ -6,6 +6,8 @@ import org.itson.disenosoftware.negocio.avisos.Avisos;
 import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
 import org.itson.disenosoftware.negocio.dtos.FotoNuevaDTO;
 import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
+import org.itson.disenosoftware.negocio.subsistemas.marco.FAdminMarcos;
+import org.itson.disenosoftware.negocio.subsistemas.marco.IFAdminMarcos;
 
 /**
  *
@@ -28,6 +30,13 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         initComponents();
     }
 
+    private void confirmarPedidos(){
+        IFAdminMarcos adminMarcos = new FAdminMarcos();
+        adminMarcos.registrarMarco(marcoDTO);
+    
+    }
+    
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is

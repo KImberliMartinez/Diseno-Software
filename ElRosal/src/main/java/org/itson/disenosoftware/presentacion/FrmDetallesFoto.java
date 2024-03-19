@@ -35,6 +35,15 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         initComponents();
     }
 
+    private void guardarDatosFoto(){
+        String danios = cbxTipo.getSelectedItem().toString();
+        String edicion = txtAreaEdicion.getText();
+        
+        fotoDTO.setTipoReaparacion(danios);
+        fotoDTO.setEdicionDeseada(edicion);
+    }
+    
+    
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -114,7 +123,7 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         cbxTipo.setFont(new java.awt.Font("Amazon Ember Light", 0, 18)); // NOI18N
         cbxTipo.setForeground(new java.awt.Color(157, 134, 90));
         cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Humedad", "Rasgaduras y/o Arrugas", "Manchas", "Desvanecimiento de color" }));
-        cbxTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), null));
+        cbxTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cbxTipo.setFocusable(false);
         cbxTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,6 +133,7 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         panelOpciones.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 230, 40));
 
         panelOpcion3.setBackground(new java.awt.Color(242, 224, 201));
+        panelOpcion3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
         panelOpcion3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnAplicarEdicion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconXPequena.png"))); // NOI18N
@@ -143,11 +153,13 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         panelOpciones.add(panelOpcion3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 30, 30));
 
         jPanel1.setBackground(new java.awt.Color(242, 224, 201));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
         panelOpciones.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 210, 280));
 
         txtAreaEdicion.setBackground(new java.awt.Color(242, 224, 201));
         txtAreaEdicion.setColumns(20);
         txtAreaEdicion.setRows(5);
+        txtAreaEdicion.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
         jScrollPane1.setViewportView(txtAreaEdicion);
 
         panelOpciones.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 430, 130));
@@ -209,7 +221,7 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         if(txtAreaEdicion.getText().isEmpty()||cbxTipo.getSelectedIndex()==-1){
            new Avisos().mostrarAviso(this, "complete todos los espacios");  
         }else{
-            
+            navegacion.cambiarFrmPedidoInfo(this, clienteDTO, fotoDTO, marcoDTO);
         }
     }//GEN-LAST:event_btnContinuarActionPerformed
 

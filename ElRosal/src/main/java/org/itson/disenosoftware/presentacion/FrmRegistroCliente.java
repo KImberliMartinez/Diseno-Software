@@ -23,7 +23,6 @@ public class FrmRegistroCliente extends javax.swing.JFrame {
     }
 
     private void guardar(){
-        
         String nombre = txtNombre.getText();
         String apellidos = txtApellidos.getText();
         String correo = txtCorreo.getText();

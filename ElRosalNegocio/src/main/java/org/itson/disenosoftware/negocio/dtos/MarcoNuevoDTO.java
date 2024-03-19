@@ -6,26 +6,23 @@
 package org.itson.disenosoftware.negocio.dtos;
 
 /**
- *
- * @author José Karim Franco Valencia - 245138
- * @author Jesus Rene Gonzalez Castro - 247336
- * @author Gael Rafael Castro Molina - 244802
+
  */
 public class MarcoNuevoDTO {
 private double ancho;
 private double largo;
 private String tipoDetalle;
-private  int Cantidad;
+private String disenio;
 
     public MarcoNuevoDTO() {
     }
 
 
-    public MarcoNuevoDTO(double ancho, double largo, String tipoDetalle, int Cantidad) {
+    public MarcoNuevoDTO(double ancho, double largo, String tipoDetalle, String disenio) {
         this.ancho = ancho;
         this.largo = largo;
         this.tipoDetalle = tipoDetalle;
-        this.Cantidad = Cantidad;
+        this.disenio = disenio;
     }
 
     public double getAncho() {
@@ -52,14 +49,18 @@ private  int Cantidad;
         this.tipoDetalle = tipoDetalle;
     }
 
-    public int getCantidad() {
-        return Cantidad;
+    public String getDisenio() {
+        return disenio;
     }
 
-    public void setCantidad(int Cantidad) {
-        this.Cantidad = Cantidad;
+    public void setDisenio(String disenio) {
+        this.disenio = disenio;
     }
 
+    @Override
+    public String toString() {
+        return "MarcoNuevoDTO{" + "ancho=" + ancho + ", largo=" + largo + ", tipoDetalle=" + tipoDetalle + ", disenio=" + disenio + '}';
+    }
     
 
 }

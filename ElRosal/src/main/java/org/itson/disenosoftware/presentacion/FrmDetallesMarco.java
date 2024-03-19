@@ -1,10 +1,14 @@
 package org.itson.disenosoftware.presentacion;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.itson.disenosoftware.navegacion.INavegacion;
 import org.itson.disenosoftware.navegacion.Navegacion;
 import org.itson.disenosoftware.negocio.avisos.Avisos;
 import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
 import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
+import org.itson.disenosoftware.negocio.subsistemas.marco.FAdminMarcos;
+import org.itson.disenosoftware.negocio.subsistemas.marco.IFAdminMarcos;
 
 /**
  *
@@ -30,8 +34,32 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         this.isCompleto = isCompleto;
         marcoDTO = new MarcoNuevoDTO();
         initComponents();
+        llenarComboBox();
     }
 
+    private void llenarComboBox (){
+        List<String> listaMarcos = new ArrayList<>();
+        
+        IFAdminMarcos adminMarcos = new FAdminMarcos();
+        listaMarcos = adminMarcos.recuperarCatalogoMarcos();
+        
+        for (String listaMarco : listaMarcos) {
+            cbxTipo.addItem(listaMarco);
+        }
+    }
+    
+    private void guardarMarco(){
+        String material = cbxTipo.getSelectedItem().toString();
+        int largo = Integer.parseInt(txtLargo.getText());
+        int ancho = Integer.parseInt(txtAncho.getText());
+        String detalles = txaDisenio.getText();
+        
+        marcoDTO.setTipoDetalle(material);
+        marcoDTO.setLargo(largo);
+        marcoDTO.setAncho(ancho);
+        marcoDTO.setDisenio(detalles);
+    }
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,7 +86,7 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         lblLargo = new javax.swing.JLabel();
         lblOpciones = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txaDisenio = new javax.swing.JTextArea();
         btnCancelar = new javax.swing.JButton();
         btnContinuar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -116,8 +144,7 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         cbxTipo.setBackground(new java.awt.Color(242, 224, 201));
         cbxTipo.setFont(new java.awt.Font("Amazon Ember Light", 0, 18)); // NOI18N
         cbxTipo.setForeground(new java.awt.Color(157, 134, 90));
-        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Roble", "Nogal", "Pino", "Arce", "Maple" }));
-        cbxTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), null));
+        cbxTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cbxTipo.setFocusable(false);
         cbxTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,14 +157,14 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         txtAncho.setFont(new java.awt.Font("Amazon Ember Light", 0, 20)); // NOI18N
         txtAncho.setForeground(new java.awt.Color(34, 33, 33));
         txtAncho.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtAncho.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), null));
+        txtAncho.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), 2));
         panelOpciones.add(txtAncho, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 100, 40));
 
         txtLargo.setBackground(new java.awt.Color(242, 224, 201));
         txtLargo.setFont(new java.awt.Font("Amazon Ember Light", 0, 20)); // NOI18N
         txtLargo.setForeground(new java.awt.Color(34, 33, 33));
         txtLargo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtLargo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), null));
+        txtLargo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), 2));
         panelOpciones.add(txtLargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 100, 40));
 
         lblAncho.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
@@ -156,10 +183,11 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         lblOpciones.setText("Diseño:");
         panelOpciones.add(lblOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 140, -1));
 
-        jTextArea1.setBackground(new java.awt.Color(242, 224, 201));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txaDisenio.setBackground(new java.awt.Color(242, 224, 201));
+        txaDisenio.setColumns(20);
+        txaDisenio.setRows(5);
+        txaDisenio.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
+        jScrollPane1.setViewportView(txaDisenio);
 
         panelOpciones.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 430, 130));
 
@@ -183,6 +211,7 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         panelOpciones.add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 160, 50));
 
         jPanel1.setBackground(new java.awt.Color(242, 224, 201));
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
         panelOpciones.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 210, 280));
 
         getContentPane().add(panelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1000, 480));
@@ -195,12 +224,13 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxTipoActionPerformed
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
-        if (txtAncho.getText().isEmpty() || txtLargo.getText().isEmpty() || cbxTipo.getSelectedIndex() == -1 || jTextArea1.getText().isEmpty()) {
+        if (txtAncho.getText().isEmpty() || txtLargo.getText().isEmpty() || cbxTipo.getSelectedIndex() == -1 || txaDisenio.getText().isEmpty()) {
             new Avisos().mostrarAviso(this, "complete toda la informacion");
         } else {
             if (isCompleto) {
                 navegacion.cambiarFrmDetallesFoto(this, clienteDTO, marcoDTO);
             } else {
+                guardarMarco();
                 navegacion.cambiarFrmPedidoInfo(this, clienteDTO, null, marcoDTO);
             }
         }
@@ -213,7 +243,6 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxTipo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblAncho;
     private javax.swing.JLabel lblCm;
     private javax.swing.JLabel lblCm2;
@@ -227,6 +256,7 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
     private javax.swing.JLabel logoRosa2;
     private javax.swing.JPanel panelEncabezado;
     private javax.swing.JPanel panelOpciones;
+    private javax.swing.JTextArea txaDisenio;
     private javax.swing.JTextField txtAncho;
     private javax.swing.JTextField txtLargo;
     // End of variables declaration//GEN-END:variables
