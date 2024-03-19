@@ -2,6 +2,7 @@ package org.itson.disenosoftware.presentacion;
 
 import org.itson.disenosoftware.navegacion.INavegacion;
 import org.itson.disenosoftware.navegacion.Navegacion;
+import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
 
 /**
  *
@@ -14,9 +15,11 @@ import org.itson.disenosoftware.navegacion.Navegacion;
 public class FrmBuscarCliente extends javax.swing.JFrame {
 
     INavegacion navegacion;
+    ClienteNuevoDTO clienteDTO;
     /** Creates new form FrmOpcionesCliente */
     public FrmBuscarCliente() {
         navegacion = new Navegacion();
+        clienteDTO = new ClienteNuevoDTO();
         initComponents();
     }
 
@@ -144,7 +147,7 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         // TODO add your handling code here:
-        FrmTipoOrden tp=new FrmTipoOrden();
+        FrmTipoOrden tp=new FrmTipoOrden(clienteDTO);
         tp.setVisible(true);
         dispose();
     }//GEN-LAST:event_btnSeleccionarActionPerformed

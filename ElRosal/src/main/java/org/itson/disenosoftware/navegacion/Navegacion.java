@@ -63,7 +63,7 @@ public class Navegacion implements INavegacion{
     @Override
     public void cambiarFrmTipoOrden(JFrame ventana, ClienteNuevoDTO clienteDTO) {
         ventana.dispose();
-        FrmTipoOrden tipoOrden = new FrmTipoOrden();
+        FrmTipoOrden tipoOrden = new FrmTipoOrden(clienteDTO);
         tipoOrden.setVisible(true);
     }
 
@@ -73,9 +73,9 @@ public class Navegacion implements INavegacion{
      * @param clienteDTO El DTO del cliente asociado.
      */
     @Override
-    public void cambiarFrmDetallesFoto(JFrame ventana, ClienteNuevoDTO clienteDTO) {
+    public void cambiarFrmDetallesFoto(JFrame ventana, ClienteNuevoDTO clienteDTO, MarcoNuevoDTO marcoDTO) {
         ventana.dispose();
-        FrmDetallesFoto detallesFoto = new FrmDetallesFoto();
+        FrmDetallesFoto detallesFoto = new FrmDetallesFoto(clienteDTO, marcoDTO);
         detallesFoto.setVisible(true);
     }
 
@@ -83,11 +83,12 @@ public class Navegacion implements INavegacion{
      * Cambia a la ventana de detalles de un marco para un cliente dado.
      * @param ventana La ventana actual.
      * @param clienteDTO El DTO del cliente asociado.
+     * @param completo Boleano para corrobar que sea un servicio completo
      */
     @Override
-    public void cambiarFrmDetallesMarco(JFrame ventana, ClienteNuevoDTO clienteDTO) {
+    public void cambiarFrmDetallesMarco(JFrame ventana, ClienteNuevoDTO clienteDTO, boolean completo) {
         ventana.dispose();
-        FrmDetallesMarco detallesMarco = new FrmDetallesMarco();
+        FrmDetallesMarco detallesMarco = new FrmDetallesMarco(clienteDTO, completo);
         detallesMarco.setVisible(true);
     }
 
