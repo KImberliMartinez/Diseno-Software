@@ -67,7 +67,7 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         lblTotalInfo = new javax.swing.JLabel();
         lblTotalPagar = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtInfo = new javax.swing.JTextArea();
+        textArea1 = new javax.swing.JTextArea();
         lblOpciones1 = new javax.swing.JLabel();
         lblNombreCliente1 = new javax.swing.JLabel();
         lblTituloSeccion = new javax.swing.JLabel();
@@ -160,30 +160,14 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         lblTotalPagar.setText("$777.00 MXN");
         panelOpciones.add(lblTotalPagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 110, 210, -1));
 
-<<<<<<< HEAD
-        lblSubtotal.setFont(new java.awt.Font("Amazon Ember", 0, 18)); // NOI18N
-        lblSubtotal.setForeground(new java.awt.Color(64, 53, 44));
-        lblSubtotal.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblSubtotal.setText("$77.00 MXN");
-        panelOpciones.add(lblSubtotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 140, 210, -1));
-
-        jTextArea1.setBackground(new java.awt.Color(242, 224, 201));
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Amazon Ember Light", 0, 18)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Yo que ni un momento puedo estar lejos de ti\nCómo soportar la vida entera ya sin ti\nTe quiero, te quiero, te juro que yo\nNo puedo vivir sin tu amor");
-        jTextArea1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
-        jTextArea1.setEnabled(false);
-        jScrollPane1.setViewportView(jTextArea1);
-=======
-        txtInfo.setBackground(new java.awt.Color(242, 224, 201));
-        txtInfo.setColumns(20);
-        txtInfo.setFont(new java.awt.Font("Amazon Ember Light", 0, 18)); // NOI18N
-        txtInfo.setRows(5);
-        txtInfo.setText("Yo que ni un momento puedo estar lejos de ti\nCómo soportar la vida entera ya sin ti\nTe quiero, te quiero, te juro que yo\nNo puedo vivir sin tu amor");
-        txtInfo.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
-        jScrollPane1.setViewportView(txtInfo);
->>>>>>> main
+        textArea1.setBackground(new java.awt.Color(242, 224, 201));
+        textArea1.setColumns(20);
+        textArea1.setFont(new java.awt.Font("Amazon Ember Light", 0, 18)); // NOI18N
+        textArea1.setRows(5);
+        textArea1.setText("Yo que ni un momento puedo estar lejos de ti\nCómo soportar la vida entera ya sin ti\nTe quiero, te quiero, te juro que yo\nNo puedo vivir sin tu amor");
+        textArea1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
+        textArea1.setEnabled(false);
+        jScrollPane1.setViewportView(textArea1);
 
         panelOpciones.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 430, 130));
 
@@ -211,7 +195,7 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         // TODO add your handling code here:
-        if(lblCorreo.getText().isEmpty()||lblCorreo.getText().isEmpty()||lblNombreCliente1.getText().isEmpty()||txtInfo.getText().isEmpty()){
+        if(lblCorreo.getText().isEmpty()||lblCorreo.getText().isEmpty()||lblNombreCliente1.getText().isEmpty()||textArea1.getText().isEmpty()){
               new Avisos().mostrarAviso(this, "complete todos los espacios");
         }else{
           
@@ -244,7 +228,7 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
     private javax.swing.JLabel logoRosa2;
     private javax.swing.JPanel panelEncabezado;
     private javax.swing.JPanel panelOpciones;
-    private javax.swing.JTextArea txtInfo;
+    private javax.swing.JTextArea textArea1;
     // End of variables declaration//GEN-END:variables
 
 }

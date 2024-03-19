@@ -34,7 +34,9 @@ public class ControlPedidos {
         } else if(datos.getFoto() == null){
             
         }
+        return 0;
     }
+    
    
     public float calcularPrecioFoto(OrdenNuevaDTO datos) {
         if (!datos.getFoto().getEdicionDeseada().isBlank() || !datos.getFoto().getEdicionDeseada().isEmpty()) {
@@ -53,7 +55,7 @@ public class ControlPedidos {
 //        listaMarcos.add("Maple");
 //        listaMarcos.add("Abedul");
 //        listaMarcos.add("Pino");   
-
+    return 0;
     }
     
 }

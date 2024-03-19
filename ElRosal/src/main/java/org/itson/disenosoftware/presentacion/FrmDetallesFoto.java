@@ -36,11 +36,9 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         this.marcoDTO = marcoDTO;
         fotoDTO = new FotoNuevaDTO();
         initComponents();
-<<<<<<< HEAD
+
         btnAplicarEdicion.setIcon(null);
-=======
         quitarX();
->>>>>>> main
     }
 
     private void guardarDatosFoto(){
@@ -240,16 +238,13 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnContinuar1ActionPerformed
 
     private void btnAplicarEdicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarEdicionActionPerformed
-<<<<<<< HEAD
         // TODO add your handling code here:
         if(btnAplicarEdicion.getIcon() == null){
             btnAplicarEdicion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconXPequena.png")));
         }else{
             btnAplicarEdicion.setIcon(null);
         }
-=======
        btnAplicarEdicion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconX.png")));
->>>>>>> main
     }//GEN-LAST:event_btnAplicarEdicionActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

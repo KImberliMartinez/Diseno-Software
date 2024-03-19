@@ -197,7 +197,6 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxTipoActionPerformed
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
-<<<<<<< HEAD
        int filaSeleccionada = jClientes.getSelectedRow();
 
         if (filaSeleccionada != -1) { // Verificar si se ha seleccionado alguna fila
@@ -219,18 +218,7 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
         } else {
             // Si no se ha seleccionado ninguna fila, muestra un mensaje de advertencia o realiza alguna otra acción
             new Avisos().mostrarAviso(this, "Seleccione un cliente primero");
-=======
-        // TODO add your handling code here:
-        if(cbxTipo.getSelectedIndex()==-1||txtNombre.getText().isEmpty()){
-           
-           new Avisos().mostrarAviso(this, "complete todos los espacios");
-      
-        }else{
-             navegacion.cambiarFrmTipoOrden(this, clienteDTO);
-        dispose();
->>>>>>> main
         }
-        //        }
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
