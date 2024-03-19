@@ -32,7 +32,7 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
      * @param marcoDTO */
     public FrmDetallesFoto(ClienteNuevoDTO clienteDTO, MarcoNuevoDTO marcoDTO) {
         navegacion = new Navegacion();
-        clienteDTO = new ClienteNuevoDTO();
+        this.clienteDTO = clienteDTO;
         this.marcoDTO = marcoDTO;
         fotoDTO = new FotoNuevaDTO();
         initComponents();

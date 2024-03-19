@@ -12,7 +12,7 @@ import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
  * @author JoseH
  */
 public class ClienteControl {
-    ArrayList<ClienteNuevoDTO> clientes = new ArrayList<>();
+    static ArrayList<ClienteNuevoDTO> clientes = new ArrayList<>();
     
     public void registrarCliente(ClienteNuevoDTO datos) {
         clientes.add(datos);

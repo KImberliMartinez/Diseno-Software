@@ -224,9 +224,10 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
 
     private void btnContinuarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuarActionPerformed
         if (txtAncho.getText().isEmpty() || txtLargo.getText().isEmpty() || cbxTipo.getSelectedIndex() == -1 || txaDisenio.getText().isEmpty()) {
-            new Avisos().mostrarAviso(this, "complete toda la informacion");
+            new Avisos().mostrarAviso(this, "Complete toda la informacion");
         } else {
             if (isCompleto) {
+                guardarMarco();
                 navegacion.cambiarFrmDetallesFoto(this, clienteDTO, marcoDTO);
             } else {
                 guardarMarco();

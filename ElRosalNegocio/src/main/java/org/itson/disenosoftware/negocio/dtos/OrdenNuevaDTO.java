@@ -10,7 +10,8 @@ public class OrdenNuevaDTO {
 private ClienteNuevoDTO cliente;
 private MarcoNuevoDTO marco;
 private FotoNuevaDTO foto;
-private int precio;
+private float precio;
+private String fechaRealizacion;
 
     public OrdenNuevaDTO() {
     }
@@ -45,10 +46,28 @@ private int precio;
         this.foto = foto;
     }
 
+    public float getPrecio() {
+        return precio;
+    }
+
+    public String getFechaRealizacion() {
+        return fechaRealizacion;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    public void setFechaRealizacion(String fechaRealizacion) {
+        this.fechaRealizacion = fechaRealizacion;
+    }
+
     @Override
     public String toString() {
-        return "OrdenNuevaDTO{" + "cliente=" + cliente + ", marco=" + marco + ", foto=" + foto + '}';
+        return "OrdenNuevaDTO{" + "cliente=" + cliente + ", marco=" + marco + ", foto=" + foto + ", precio=" + precio + ", fechaRealizacion=" + fechaRealizacion + '}';
     }
+
+    
 
     
 

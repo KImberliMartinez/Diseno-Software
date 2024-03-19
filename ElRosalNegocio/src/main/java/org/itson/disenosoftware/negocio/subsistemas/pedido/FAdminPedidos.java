@@ -14,8 +14,24 @@ import org.itson.disenosoftware.negocio.dtos.OrdenNuevaDTO;
 public class FAdminPedidos implements IFAdminPedidos{
     private ControlPedidos control = new ControlPedidos();
     
+    @Override
     public void confirmarPedido(OrdenNuevaDTO datos) {
         control.confirmarPedido(datos);
+    }
+    
+    @Override
+    public float calcularPrecioPedido(OrdenNuevaDTO datos){
+        return control.calcularPrecioPedido(datos);
+    }
+    
+    @Override
+    public float calcularPrecioFoto(OrdenNuevaDTO datos){
+        return control.calcularPrecioFoto(datos);
+    }
+    
+    @Override
+    public float calcularPrecioMarco(OrdenNuevaDTO datos){
+        return control.calcularPrecioMarco(datos);
     }
     
 }

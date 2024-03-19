@@ -1,5 +1,6 @@
 package org.itson.disenosoftware.presentacion;
 
+import java.time.LocalDate;
 import org.itson.disenosoftware.navegacion.INavegacion;
 import org.itson.disenosoftware.navegacion.Navegacion;
 import org.itson.disenosoftware.negocio.avisos.Avisos;
@@ -7,8 +8,12 @@ import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
 import org.itson.disenosoftware.negocio.dtos.FotoNuevaDTO;
 import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
 import org.itson.disenosoftware.negocio.dtos.OrdenNuevaDTO;
+import org.itson.disenosoftware.negocio.subsistemas.foto.FAdminFotos;
+import org.itson.disenosoftware.negocio.subsistemas.foto.IFAdminFotos;
 import org.itson.disenosoftware.negocio.subsistemas.marco.FAdminMarcos;
 import org.itson.disenosoftware.negocio.subsistemas.marco.IFAdminMarcos;
+import org.itson.disenosoftware.negocio.subsistemas.pedido.FAdminPedidos;
+import org.itson.disenosoftware.negocio.subsistemas.pedido.IFAdminPedidos;
 
 
 /**
@@ -21,25 +26,42 @@ import org.itson.disenosoftware.negocio.subsistemas.marco.IFAdminMarcos;
  */
 public class FrmPedidoInfo extends javax.swing.JFrame {
 
+    ClienteNuevoDTO cliente;
+    FotoNuevaDTO foto;
+    MarcoNuevoDTO marco;
     INavegacion navegacion;
-    ClienteNuevoDTO clienteDTO;
-    MarcoNuevoDTO marcoDTO;
-    FotoNuevaDTO fotoDTO;
     OrdenNuevaDTO ordenDTO;
     
     /** Creates new form FrmOpcionesCliente */
     public FrmPedidoInfo(ClienteNuevoDTO clienteDTO, FotoNuevaDTO fotoDTO, MarcoNuevoDTO marcoDTO) {
+        marco = marcoDTO;
+        foto = fotoDTO;
+        cliente = clienteDTO;
         navegacion = new Navegacion();
-        this.clienteDTO = clienteDTO;
-        this.marcoDTO = marcoDTO;
-        this.fotoDTO = fotoDTO;
+        ordenDTO = new OrdenNuevaDTO(clienteDTO, marcoDTO, fotoDTO);
+        IFAdminPedidos adminPedidos = new FAdminPedidos();
+        ordenDTO.setPrecio(adminPedidos.calcularPrecioPedido(ordenDTO));
+        LocalDate fechaActual = LocalDate.now();
+        String fechaComoCadena = fechaActual.toString();
+        ordenDTO.setFechaRealizacion(fechaComoCadena);
         initComponents();
+        
+        lblNombreCliente1.setText(clienteDTO.getNombres() + " "+ clienteDTO.getApellidos());
+        lblCorreo.setText(clienteDTO.getCorreo());
+        lblTelefono.setText(clienteDTO.getTelefono());
+        lblTotalPagar.setText("$"+ String.valueOf(ordenDTO.getPrecio()));
+        lblFechaRealizacion.setText("Fecha de realización del pedido: \n"+ fechaComoCadena);
+        textArea1.setText("Foto:\n" + foto.getTipoReaparacion() + "\n" + foto.getEdicionDeseada() + "\n\n"+ "Marco:\n" + marco.getTipoDetalle() + "\n" + marco.getLargo() + " cm x " + marco.getAncho() + " cm\n" + marco.getDisenio());
+        
     }
 
-    private void confirmarPedidos(){
+     private void confirmarPedido(){
         IFAdminMarcos adminMarcos = new FAdminMarcos();
-        adminMarcos.registrarMarco(marcoDTO);
-    
+        IFAdminFotos adminFotos = new FAdminFotos();
+        IFAdminPedidos adminPedidos = new FAdminPedidos();
+        adminFotos.agregarFoto(foto);
+        adminMarcos.registrarMarco(marco);
+        adminPedidos.confirmarPedido(ordenDTO);
     }
     
     
@@ -166,6 +188,7 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         textArea1.setRows(5);
         textArea1.setText("Yo que ni un momento puedo estar lejos de ti\nCómo soportar la vida entera ya sin ti\nTe quiero, te quiero, te juro que yo\nNo puedo vivir sin tu amor");
         textArea1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
+        textArea1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         textArea1.setEnabled(false);
         jScrollPane1.setViewportView(textArea1);
 
@@ -198,7 +221,7 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         if(lblCorreo.getText().isEmpty()||lblCorreo.getText().isEmpty()||lblNombreCliente1.getText().isEmpty()||textArea1.getText().isEmpty()){
               new Avisos().mostrarAviso(this, "complete todos los espacios");
         }else{
-          
+          confirmarPedido();
         }
     }//GEN-LAST:event_btnRegistrarActionPerformed
 

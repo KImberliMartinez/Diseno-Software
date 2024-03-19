@@ -12,4 +12,7 @@ import org.itson.disenosoftware.negocio.dtos.OrdenNuevaDTO;
  */
 public interface IFAdminPedidos {
     public void confirmarPedido(OrdenNuevaDTO datos);
+    public float calcularPrecioPedido(OrdenNuevaDTO datos);
+    public float calcularPrecioFoto(OrdenNuevaDTO datos);
+    public float calcularPrecioMarco(OrdenNuevaDTO datos);
 }

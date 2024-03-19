@@ -12,7 +12,7 @@ import org.itson.disenosoftware.negocio.dtos.OrdenNuevaDTO;
  * @author JoseH
  */
 public class ControlPedidos {
-    ArrayList<OrdenNuevaDTO> pedidos = new ArrayList<>();
+    static ArrayList<OrdenNuevaDTO> pedidos = new ArrayList<>();
     
     public void confirmarPedido(OrdenNuevaDTO datos) {
         pedidos.add(datos);
@@ -23,39 +23,44 @@ public class ControlPedidos {
         System.out.println("Pedido confirmado: Marco " + datos.toString());
     }
     
-    public float calcularPrecioPedido(OrdenNuevaDTO datos){
-        float precio = 500;
-        if(datos.getMarco() != null && datos.getFoto() != null){
-           precio += calcularPrecioFoto(datos);
-           
-           
-        } else if (datos.getMarco() == null){
-            
-        } else if(datos.getFoto() == null){
-            
+    public float calcularPrecioPedido(OrdenNuevaDTO datos) {
+        float precio = 0;
+        if (datos.getMarco() != null && datos.getFoto() != null) {
+            precio += calcularPrecioFoto(datos);
+            precio += calcularPrecioMarco(datos);
+        } else if (datos.getMarco() == null) {
+            precio += calcularPrecioFoto(datos);
+        } else if (datos.getFoto() == null) {
+            precio += calcularPrecioMarco(datos);
         }
-        return 0;
+        return precio;
     }
-    
    
     public float calcularPrecioFoto(OrdenNuevaDTO datos) {
+        float precio = 500;
         if (!datos.getFoto().getEdicionDeseada().isBlank() || !datos.getFoto().getEdicionDeseada().isEmpty()) {
-            return 300;
+            return precio + 300;
         }
-        return 0;
+        return precio;
     }
         
     public float calcularPrecioMarco(OrdenNuevaDTO datos){
-        float precioUnidad;
+        float precioUnidad = 0;
         float precio;
         if (datos.getMarco().getTipoDetalle().equals("Roble")){
-            
+            precioUnidad = 15;
+        } else if (datos.getMarco().getTipoDetalle().equals("Maple")){
+            precioUnidad = 12;
+        } else if(datos.getMarco().getTipoDetalle().equals("Abedul")){
+            precioUnidad = 10;
+        } else if(datos.getMarco().getTipoDetalle().equals("Pino")){
+            precioUnidad = 5;
         }
-//        listaMarcos.add("Roble");
-//        listaMarcos.add("Maple");
-//        listaMarcos.add("Abedul");
-//        listaMarcos.add("Pino");   
-    return 0;
+        
+        float perimetro = (float) (2 * (datos.getMarco().getAncho() + datos.getMarco().getLargo()));
+        precio = perimetro * precioUnidad;
+        return precioUnidad; 
+
     }
     
 }
