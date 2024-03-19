@@ -116,7 +116,8 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         cbxTipo.setBackground(new java.awt.Color(242, 224, 201));
         cbxTipo.setFont(new java.awt.Font("Amazon Ember Light", 0, 18)); // NOI18N
         cbxTipo.setForeground(new java.awt.Color(157, 134, 90));
-        cbxTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), 2));
+        cbxTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Roble", "Nogal", "Pino", "Arce", "Maple" }));
+        cbxTipo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), null));
         cbxTipo.setFocusable(false);
         cbxTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -129,14 +130,14 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         txtAncho.setFont(new java.awt.Font("Amazon Ember Light", 0, 20)); // NOI18N
         txtAncho.setForeground(new java.awt.Color(34, 33, 33));
         txtAncho.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtAncho.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), 2));
+        txtAncho.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), null));
         panelOpciones.add(txtAncho, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 160, 100, 40));
 
         txtLargo.setBackground(new java.awt.Color(242, 224, 201));
         txtLargo.setFont(new java.awt.Font("Amazon Ember Light", 0, 20)); // NOI18N
         txtLargo.setForeground(new java.awt.Color(34, 33, 33));
         txtLargo.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        txtLargo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), 2));
+        txtLargo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), null));
         panelOpciones.add(txtLargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 100, 40));
 
         lblAncho.setFont(new java.awt.Font("Amazon Ember", 0, 14)); // NOI18N
@@ -158,7 +159,6 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         jTextArea1.setBackground(new java.awt.Color(242, 224, 201));
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
         jScrollPane1.setViewportView(jTextArea1);
 
         panelOpciones.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 430, 130));
@@ -183,7 +183,6 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         panelOpciones.add(btnContinuar, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 160, 50));
 
         jPanel1.setBackground(new java.awt.Color(242, 224, 201));
-        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
         panelOpciones.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 210, 280));
 
         getContentPane().add(panelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1000, 480));
