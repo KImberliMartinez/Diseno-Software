@@ -45,15 +45,17 @@ public interface INavegacion {
      * Cambia a la ventana de detalles de una foto para un cliente dado.
      * @param ventana La ventana actual.
      * @param clienteDTO El DTO del cliente asociado.
+     * @param marcoDTO
      */
-    public void cambiarFrmDetallesFoto(JFrame ventana, ClienteNuevoDTO clienteDTO);
+     public void cambiarFrmDetallesFoto(JFrame ventana, ClienteNuevoDTO clienteDTO, MarcoNuevoDTO marcoDTO);
 
     /**
      * Cambia a la ventana de detalles de un marco para un cliente dado.
      * @param ventana La ventana actual.
      * @param clienteDTO El DTO del cliente asociado.
+     * @param isCompleto Boleano para corrobar que sea un servicio completo.
      */
-    public void cambiarFrmDetallesMarco(JFrame ventana, ClienteNuevoDTO clienteDTO);
+    public void cambiarFrmDetallesMarco(JFrame ventana, ClienteNuevoDTO clienteDTO, boolean isCompleto);
 
     /**
      * Cambia a la ventana de información del pedido para un cliente, una foto y un marco dados.

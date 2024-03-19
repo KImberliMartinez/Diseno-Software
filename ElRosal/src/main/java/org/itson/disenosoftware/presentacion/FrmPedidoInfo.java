@@ -15,16 +15,16 @@ import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
  */
 public class FrmPedidoInfo extends javax.swing.JFrame {
 
-   INavegacion navegacion;
+    INavegacion navegacion;
     ClienteNuevoDTO clienteDTO;
     MarcoNuevoDTO marcoDTO;
     FotoNuevaDTO fotoDTO;
     /** Creates new form FrmOpcionesCliente */
-    public FrmPedidoInfo() {
+    public FrmPedidoInfo(ClienteNuevoDTO clienteDTO, FotoNuevaDTO fotoDTO, MarcoNuevoDTO marcoDTO) {
         navegacion = new Navegacion();
-        clienteDTO = new ClienteNuevoDTO();
-        marcoDTO = new MarcoNuevoDTO();
-        fotoDTO = new FotoNuevaDTO();
+        this.clienteDTO = clienteDTO;
+        this.marcoDTO = marcoDTO;
+        this.fotoDTO = fotoDTO;
         initComponents();
     }
 

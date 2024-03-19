@@ -8,6 +8,9 @@ package org.itson.disenosoftware.presentacion;
 import org.itson.disenosoftware.navegacion.INavegacion;
 import org.itson.disenosoftware.navegacion.Navegacion;
 import org.itson.disenosoftware.negocio.avisos.Avisos;
+import org.itson.disenosoftware.negocio.dtos.ClienteNuevoDTO;
+import org.itson.disenosoftware.negocio.dtos.FotoNuevaDTO;
+import org.itson.disenosoftware.negocio.dtos.MarcoNuevoDTO;
 
 /**
  *
@@ -16,10 +19,19 @@ import org.itson.disenosoftware.negocio.avisos.Avisos;
  * @author Gael Rafael Castro Molina - 244802
  */
 public class FrmDetallesFoto extends javax.swing.JFrame {
-       INavegacion navegacion;
-    /** Creates new form FrmOpcionesCliente */
-    public FrmDetallesFoto() {
-         navegacion = new Navegacion();
+    INavegacion navegacion;
+    ClienteNuevoDTO clienteDTO;
+    MarcoNuevoDTO marcoDTO;
+    FotoNuevaDTO fotoDTO;
+    
+    /** Creates new form FrmOpcionesCliente
+     * @param clienteDTO
+     * @param marcoDTO */
+    public FrmDetallesFoto(ClienteNuevoDTO clienteDTO, MarcoNuevoDTO marcoDTO) {
+        navegacion = new Navegacion();
+        clienteDTO = new ClienteNuevoDTO();
+        this.marcoDTO = marcoDTO;
+        fotoDTO = new FotoNuevaDTO();
         initComponents();
     }
 
@@ -204,7 +216,7 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
     }//GEN-LAST:event_btnContinuarActionPerformed
 
     private void btnContinuar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContinuar1ActionPerformed
-        // TODO add your handling code here:
+        navegacion.cambiarFrmPedidoInfo(this, clienteDTO, fotoDTO, marcoDTO);
     }//GEN-LAST:event_btnContinuar1ActionPerformed
 
     private void btnAplicarEdicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarEdicionActionPerformed
