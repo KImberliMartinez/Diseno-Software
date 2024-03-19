@@ -33,6 +33,7 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         this.marcoDTO = marcoDTO;
         fotoDTO = new FotoNuevaDTO();
         initComponents();
+        btnAplicarEdicion.setIcon(null);
     }
 
     private void guardarDatosFoto(){
@@ -169,6 +170,8 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(242, 224, 201));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorderPainted(false);
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.setFocusable(false);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -181,6 +184,8 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
         btnContinuar.setForeground(new java.awt.Color(242, 224, 201));
         btnContinuar.setText("Continuar");
         btnContinuar.setBorderPainted(false);
+        btnContinuar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnContinuar.setFocusable(false);
         btnContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnContinuarActionPerformed(evt);
@@ -231,6 +236,11 @@ public class FrmDetallesFoto extends javax.swing.JFrame {
 
     private void btnAplicarEdicionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAplicarEdicionActionPerformed
         // TODO add your handling code here:
+        if(btnAplicarEdicion.getIcon() == null){
+            btnAplicarEdicion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iconXPequena.png")));
+        }else{
+            btnAplicarEdicion.setIcon(null);
+        }
     }//GEN-LAST:event_btnAplicarEdicionActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

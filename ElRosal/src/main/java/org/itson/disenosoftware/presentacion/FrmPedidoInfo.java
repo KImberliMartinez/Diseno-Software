@@ -123,6 +123,8 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(242, 224, 201));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorderPainted(false);
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.setFocusable(false);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -135,6 +137,8 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         btnRegistrar.setForeground(new java.awt.Color(242, 224, 201));
         btnRegistrar.setText("Registrar");
         btnRegistrar.setBorderPainted(false);
+        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRegistrar.setFocusable(false);
         btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarActionPerformed(evt);
@@ -184,6 +188,7 @@ public class FrmPedidoInfo extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jTextArea1.setText("Yo que ni un momento puedo estar lejos de ti\nCómo soportar la vida entera ya sin ti\nTe quiero, te quiero, te juro que yo\nNo puedo vivir sin tu amor");
         jTextArea1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(64, 53, 44), 2, true));
+        jTextArea1.setEnabled(false);
         jScrollPane1.setViewportView(jTextArea1);
 
         panelOpciones.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, 430, 130));

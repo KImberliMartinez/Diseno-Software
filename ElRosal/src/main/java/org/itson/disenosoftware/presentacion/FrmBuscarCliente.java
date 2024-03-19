@@ -1,5 +1,8 @@
 package org.itson.disenosoftware.presentacion;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 import org.itson.disenosoftware.navegacion.INavegacion;
 import org.itson.disenosoftware.navegacion.Navegacion;
 import org.itson.disenosoftware.negocio.avisos.Avisos;
@@ -17,11 +20,17 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
 
     INavegacion navegacion;
     ClienteNuevoDTO clienteDTO;
+    List<ClienteNuevoDTO> clientes;
+    private DefaultTableModel modeloTabla;
+    
     /** Creates new form FrmOpcionesCliente */
     public FrmBuscarCliente() {
         navegacion = new Navegacion();
         clienteDTO= new ClienteNuevoDTO();
         initComponents();
+        anadirOpcionesCbx();
+        limpiarTabla();
+        clientesEjemplo();
     }
 
     /** This method is called from within the constructor to
@@ -40,13 +49,14 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
         panelOpciones = new javax.swing.JPanel();
         lblTituloSeccion = new javax.swing.JLabel();
         cbxTipo = new javax.swing.JComboBox<>();
-        txtNombre = new javax.swing.JTextField();
+        txtCoincidencia = new javax.swing.JTextField();
         lblOpciones = new javax.swing.JLabel();
         btnCancelar = new javax.swing.JButton();
         btnSeleccionar = new javax.swing.JButton();
         lblOpciones1 = new javax.swing.JLabel();
         lblOpciones2 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jClientes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -88,11 +98,16 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
         });
         panelOpciones.add(cbxTipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 230, 40));
 
-        txtNombre.setBackground(new java.awt.Color(242, 224, 201));
-        txtNombre.setFont(new java.awt.Font("Amazon Ember Light", 0, 20)); // NOI18N
-        txtNombre.setForeground(new java.awt.Color(34, 33, 33));
-        txtNombre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), 2));
-        panelOpciones.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 550, 40));
+        txtCoincidencia.setBackground(new java.awt.Color(242, 224, 201));
+        txtCoincidencia.setFont(new java.awt.Font("Amazon Ember Light", 0, 20)); // NOI18N
+        txtCoincidencia.setForeground(new java.awt.Color(34, 33, 33));
+        txtCoincidencia.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44), 2));
+        txtCoincidencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtCoincidenciaKeyPressed(evt);
+            }
+        });
+        panelOpciones.add(txtCoincidencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 550, 40));
 
         lblOpciones.setFont(new java.awt.Font("Amazon Ember", 0, 24)); // NOI18N
         lblOpciones.setForeground(new java.awt.Color(64, 53, 44));
@@ -104,6 +119,8 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(242, 224, 201));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorderPainted(false);
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.setFocusable(false);
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelarActionPerformed(evt);
@@ -116,6 +133,8 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
         btnSeleccionar.setForeground(new java.awt.Color(242, 224, 201));
         btnSeleccionar.setText("Seleccionar");
         btnSeleccionar.setBorderPainted(false);
+        btnSeleccionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSeleccionar.setFocusable(false);
         btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSeleccionarActionPerformed(evt);
@@ -133,9 +152,40 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
         lblOpciones2.setText("Tipo:");
         panelOpciones.add(lblOpciones2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
 
-        jPanel1.setBackground(new java.awt.Color(217, 195, 176));
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(64, 53, 44)));
-        panelOpciones.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 230, 810, 150));
+        jClientes.setBackground(new java.awt.Color(217, 195, 176));
+        jClientes.setFont(new java.awt.Font("Amazon Ember", 0, 12)); // NOI18N
+        jClientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Nombres", "Apellidos", "Correo", "Teléfono"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jClientes);
+        if (jClientes.getColumnModel().getColumnCount() > 0) {
+            jClientes.getColumnModel().getColumn(3).setPreferredWidth(0);
+        }
+
+        panelOpciones.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 220, 810, 170));
 
         getContentPane().add(panelOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 1000, 480));
 
@@ -147,28 +197,45 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxTipoActionPerformed
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
-        // TODO add your handling code here:
-        if(cbxTipo.getSelectedIndex()==-1||txtNombre.getText().isEmpty()){
-           // navegacion.cambiarFrmTipoOrden(this, clienteDTO);
-           new Avisos().mostrarAviso(this, "complete todos los espacios");
-      
-        }else{
-              FrmTipoOrden tp=new FrmTipoOrden(clienteDTO);
-        tp.setVisible(true);
-        dispose();
+       int filaSeleccionada = jClientes.getSelectedRow();
+
+        if (filaSeleccionada != -1) { // Verificar si se ha seleccionado alguna fila
+            Object[] datosFila = new Object[jClientes.getColumnCount()];
+
+            for (int i = 0; i < jClientes.getColumnCount(); i++) {
+                datosFila[i] = jClientes.getValueAt(filaSeleccionada, i);
+            }
+
+            // Suponiendo que clienteDTO es una instancia de tu clase ClienteDTO
+            clienteDTO.setNombres(datosFila[0].toString()); // Suponiendo que la columna 0 es para nombres
+            clienteDTO.setApellidos(datosFila[1].toString()); // Suponiendo que la columna 1 es para apellidos
+            clienteDTO.setCorreo(datosFila[2].toString()); // Suponiendo que la columna 2 es para correo
+            clienteDTO.setTelefono(datosFila[3].toString()); // Suponiendo que la columna 3 es para teléfono
+
+            navegacion.cambiarFrmTipoOrden(this, clienteDTO);
+//            // Aquí podrías hacer cualquier otra operación con el objeto clienteDTO, como imprimirlo o usarlo de otra manera
+//            System.out.println(clienteDTO);
+        } else {
+            // Si no se ha seleccionado ninguna fila, muestra un mensaje de advertencia o realiza alguna otra acción
+            new Avisos().mostrarAviso(this, "Seleccione un cliente primero");
         }
-        
+        //        }
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         navegacion.cambiarFrmOpcionesCliente(this);
     }//GEN-LAST:event_btnCancelarActionPerformed
 
+    private void txtCoincidenciaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCoincidenciaKeyPressed
+        buscarCoincidencias(txtCoincidencia.getText()+evt.getKeyChar());
+    }//GEN-LAST:event_txtCoincidenciaKeyPressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSeleccionar;
     private javax.swing.JComboBox<String> cbxTipo;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTable jClientes;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblEncabezado;
     private javax.swing.JLabel lblOpciones;
     private javax.swing.JLabel lblOpciones1;
@@ -178,7 +245,80 @@ public class FrmBuscarCliente extends javax.swing.JFrame {
     private javax.swing.JLabel logoRosa2;
     private javax.swing.JPanel panelEncabezado;
     private javax.swing.JPanel panelOpciones;
-    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtCoincidencia;
     // End of variables declaration//GEN-END:variables
 
+    private void anadirOpcionesCbx() {
+        cbxTipo.addItem("Nombre");
+        cbxTipo.addItem("Apellidos");
+        cbxTipo.addItem("Correo");
+        cbxTipo.addItem("Teléfono");
+    }
+
+    
+    private void clientesEjemplo(){
+        clientes = new ArrayList<>();
+        clientes.add(new ClienteNuevoDTO("Jose Karim","Franco Valencia","luismilover@gmail.com","6444562780"));
+        clientes.add(new ClienteNuevoDTO("John Julian","Lennon Harrison","imaginelover@gmail.com","6444242780"));
+        clientes.add(new ClienteNuevoDTO("Ana Laura","Arredondo Suarez","catlover@gmail.com","6444569080"));
+        clientes.add(new ClienteNuevoDTO("Jurgen Cosmo","Don Dimadon","duenodimdale@gmail.com","789788780"));
+        clientes.add(new ClienteNuevoDTO("Jorge Antonio","Estrada Garces","beatles@gmail.com","678989890"));
+        clientes.add(new ClienteNuevoDTO("Carlos","Guzman Cordova","toxico@gmail.com","6788888190"));
+        clientes.add(new ClienteNuevoDTO("Kike Wacho","Alamos Flores","ulsa@gmail.com","6441236854"));
+    }
+
+    private void buscarCoincidencias(String texto) {
+        limpiarTabla();
+        
+        if(cbxTipo.getSelectedIndex() == 0){
+            for (ClienteNuevoDTO cliente : clientes) {
+                if(cliente.getNombres().contains(texto)){
+                    insertarFila(cliente);
+                }
+            }
+        }else if(cbxTipo.getSelectedIndex() == 1){
+            for (ClienteNuevoDTO cliente : clientes) {
+                    if(cliente.getApellidos().contains(texto)){
+                        insertarFila(cliente);
+                    }
+            }
+        }else if(cbxTipo.getSelectedIndex() == 2){
+            for (ClienteNuevoDTO cliente : clientes) {
+                    if(cliente.getCorreo().contains(texto)){
+                        insertarFila(cliente);
+                    }
+            }
+        }else{
+            for (ClienteNuevoDTO cliente : clientes) {
+                    if(cliente.getTelefono().contains(texto)){
+                        insertarFila(cliente);
+                    }
+            }
+        }
+         
+    }
+    
+    /**
+     * Método que limpia la tabla de transacciones.
+     */
+    private void limpiarTabla(){
+         modeloTabla = (DefaultTableModel) jClientes.getModel();
+            if (modeloTabla.getRowCount() > 0) {
+                for (int i = modeloTabla.getRowCount() - 1; i > -1; i--) {
+                    modeloTabla.removeRow(i);
+                }
+            }
+    }
+    
+   
+    
+    private void insertarFila(ClienteNuevoDTO cliente){
+        Object[] fila = {
+                                cliente.getNombres(),
+                                cliente.getApellidos(),
+                                cliente.getCorreo(),
+                                cliente.getTelefono()
+                            };
+                            modeloTabla.addRow(fila);
+    }
 }

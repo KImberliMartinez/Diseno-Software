@@ -111,6 +111,10 @@
               <Color blue="c9" green="e0" red="f2" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CLIENTE REGISTRADO"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClienteRegistradoActionPerformed"/>
@@ -133,6 +137,10 @@
               <Color blue="c9" green="e0" red="f2" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="CLIENTE NUEVO"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Hand Cursor"/>
+            </Property>
+            <Property name="focusable" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClienteNuevoActionPerformed"/>

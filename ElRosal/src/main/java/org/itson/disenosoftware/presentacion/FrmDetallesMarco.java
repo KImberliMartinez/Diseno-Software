@@ -196,6 +196,8 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         btnCancelar.setForeground(new java.awt.Color(242, 224, 201));
         btnCancelar.setText("Cancelar");
         btnCancelar.setBorderPainted(false);
+        btnCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCancelar.setFocusable(false);
         panelOpciones.add(btnCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 160, 50));
 
         btnContinuar.setBackground(new java.awt.Color(64, 53, 44));
@@ -203,6 +205,8 @@ public class FrmDetallesMarco extends javax.swing.JFrame {
         btnContinuar.setForeground(new java.awt.Color(242, 224, 201));
         btnContinuar.setText("Continuar");
         btnContinuar.setBorderPainted(false);
+        btnContinuar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnContinuar.setFocusable(false);
         btnContinuar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnContinuarActionPerformed(evt);

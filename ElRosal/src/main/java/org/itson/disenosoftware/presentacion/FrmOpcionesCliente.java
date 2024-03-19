@@ -63,6 +63,8 @@ public class FrmOpcionesCliente extends javax.swing.JFrame {
         btnClienteRegistrado.setFont(new java.awt.Font("Amazon Ember Light", 0, 36)); // NOI18N
         btnClienteRegistrado.setForeground(new java.awt.Color(242, 224, 201));
         btnClienteRegistrado.setText("CLIENTE REGISTRADO");
+        btnClienteRegistrado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClienteRegistrado.setFocusable(false);
         btnClienteRegistrado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClienteRegistradoActionPerformed(evt);
@@ -74,6 +76,8 @@ public class FrmOpcionesCliente extends javax.swing.JFrame {
         btnClienteNuevo.setFont(new java.awt.Font("Amazon Ember Light", 0, 36)); // NOI18N
         btnClienteNuevo.setForeground(new java.awt.Color(242, 224, 201));
         btnClienteNuevo.setText("CLIENTE NUEVO");
+        btnClienteNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnClienteNuevo.setFocusable(false);
         btnClienteNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClienteNuevoActionPerformed(evt);
